@@ -1,0 +1,284 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: "Open Sans", sans-serif !important;
+  min-height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Oswald', sans-serif;
+}
+input:focus {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none;
+  border: 2px #000 solid;
+  border-color: #000;
+  outline: 0;
+}
+input:hover {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+.btn-custom {
+  background: #fe4819;
+  color: #fff;
+  padding: 10px 30px;
+}
+.btn-custom:focus {
+  color: #fff;
+  outline: none;
+}
+.btn-custom:hover {
+  color: #fff;
+}
+.input-own {
+  height: 50px;
+  min-width: 100%;
+  background: white;
+  border: 1px solid black;
+}
+#login-wrapper {
+  height: 100%;
+}
+#login-wrapper .login-wrapper-inner {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#login-wrapper .login-wrapper-inner .left-side {
+  background: #fe4819;
+  height: 100%;
+  display: table;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper {
+  text-align: right;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper img {
+  width: 80px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper h4 {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-right: 17px;
+  padding: 0;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc {
+  text-align: right;
+  color: white;
+  padding-left: 50px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc h2 {
+  margin-top: 30px;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc h6 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc p {
+  font-size: 14px;
+  line-height: 2;
+  margin: 0 0 10px;
+}
+#login-wrapper .login-wrapper-inner .right-side {
+  padding: 0;
+  height: 100%;
+  background: url('../img/logowanie.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: table;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner {
+  background: rgba(230, 230, 230, 0.93);
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form {
+  padding: 40px 30px;
+  border: 2px solid #fe4819;
+  background: rgba(254, 72, 25, 0.1);
+  border-radius: 10px;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group {
+  text-align: center;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group label {
+  font-size: 22px;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group input {
+  margin-bottom: 5px;
+  height: 40px;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group a {
+  color: black;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form #zarejestruj-sie {
+  color: black;
+  padding: 3px 18px 0 0;
+}
+#admin-wrapper .admin-site {
+  height: 100%;
+}
+#admin-wrapper .admin-site nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fe4819;
+  height: 70px;
+  margin: 0;
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+}
+#admin-wrapper .admin-site nav h3 {
+  line-height: 70px;
+  margin: 0;
+}
+#admin-wrapper .admin-site nav .navbar-option p {
+  line-height: 70px;
+  margin: 0;
+  margin: 0 10px;
+}
+#admin-wrapper .admin-site nav .navbar-option a {
+  color: #000;
+}
+#admin-wrapper .admin-site .sidebar-left {
+  width: 300px;
+  background: #f3f3f3;
+  min-height: 100%;
+  padding: 25px 15px;
+  float: left;
+  padding-top: 90px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option {
+  border: 2px solid #fe4819;
+  margin-bottom: 20px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option .sidebar-option-title {
+  font-size: 20px;
+  background: #fe4819;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 700;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li {
+  background: white;
+  padding: 10px 10px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li a {
+  color: black;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li:hover {
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li:hover a {
+  color: white;
+  text-decoration: none;
+}
+#admin-wrapper .admin-site .main-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-left: 300px;
+  background: #fff;
+  background: url(http://www.sparkbit.pl/wp-content/uploads/2016/06/home_main.jpg) no-repeat top center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner {
+  padding: 90px 20px 20px;
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f3f3f3+1,ffffff+100&1+0,0.24+100 */
+  background: -moz-linear-gradient(left, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#3dffffff', GradientType=1);
+  /* IE6-9 */
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel {
+  width: 100%;
+  min-height: 100%;
+  background: rgba(243, 243, 243, 0.3);
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h3 {
+  font-size: 45px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px 0 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h6 {
+  font-size: 13px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h5 {
+  display: block;
+  width: 100%;
+  background: #dcdcdc;
+  padding: 15px 0;
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania {
+  margin-top: 30px;
+  margin-right: 20px;
+  padding: 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p {
+  text-align: left;
+  font-size: 16px;
+  padding: 10px 0 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p i {
+  float: right;
+  padding-right: 15px;
+  cursor: pointer;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p i:hover {
+  color: red;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
