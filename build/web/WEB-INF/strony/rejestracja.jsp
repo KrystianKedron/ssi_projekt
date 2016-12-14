@@ -34,26 +34,24 @@
             <div class="right-side-inner">
                 <div class="col-xs-6 col-xs-offset-3">
                     <div class="login-form">
-                        <c:url var="log_url"  value="/main/logowanie" />    
-                        <form:form commandName="user" method="post" action="${log_url}">
-                            <div class="form-group">
-                                <label for="inputUsernameEmail">Adres email:</label>
-                                <form:input type="email" class="form-control" path="imie" id="imie"/>
-                                <a href="#">Zapomniałeś email?</a>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 30px;">
-                                <label for="inputPassword">Hasło:</label>
-                                <form:input type="password" class="form-control" path="nazwisko" id="nazwisko"/>
-                                <a href="#">Zapomniałeś hasło?</a>
-                            </div>
-                            <div class="checkbox pull-left">
-                                <label><input type="checkbox">Zapamiętaj mni</label>
-                            </div>
-                            <spring:message code="input.zaloguj" var="zaloguj" />
-                             <input class="btn btn-custom pull-right" type="submit" name="LOGOWANIE" value="${zaloguj}"/>
-                            <div class="clearfix"></div>
-                            <a id="zarejestruj-sie" href="<c:url value="/main/rejestracja" />" class="pull-right">Zarejestruj się</a>
-                        </form:form>
+                        <label class="col-md-offset-3" style="font-size: 2vmax;">
+                            <spring:message code="label.wprowadz" /> </label>
+                            <c:url var="main_url"  value="/main" />    
+                            <form:form commandName="user" method="post" action="${main_url}">
+                                <form:hidden path="id" id="id"/>
+                                <div class="form-group col-md-offset-1" style="margin-top: 30px;">
+                                        <label><spring:message code="label.imie" /></label>
+                                        <form:input path="imie" id="imie"/>
+                                        <form:errors path="imie"/>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 30px;">
+                                        <label><spring:message code="label.nazwisko" /></label>
+                                        <form:input path="nazwisko" id="nazwisko"/>
+                                        <form:errors path="nazwisko"/>
+                                </div>  
+                                    <spring:message code="input.zapisz" var="zapisz" />
+                                    <input class="btn btn-custom pull-right" type="submit" name="zapisz" value="${zapisz}"/>
+                            </form:form>
                     </div>
                 </div>
             </div>
@@ -62,6 +60,6 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<c:url value="/resources/jss/scrpit.js" />></script>
+<script src="<c:url value="/resources/js/script.css" />></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ import javax.annotation.ManagedBean;
 import javax.enterprise.context.SessionScoped;
 import org.hibernate.Session;
 import pk.ssi.hibernate.NewHibernateUtil;
-import pk.ssi.studentForm;
+import pk.ssi.userForm;
 
 /**
  *
@@ -20,32 +20,32 @@ import pk.ssi.studentForm;
  */
 @ManagedBean
 @SessionScoped
-public class Database implements Serializable {
+public class DataBase implements Serializable {
     
     private NewHibernateUtil helper;
     private Session session;
     
-    public void addStudent(int id, String imie, String nazwisko, String uczelnia){
+    public void addUser(int id, String imie, String nazwisko){
         
-        studentForm s = new studentForm(id,imie,nazwisko,uczelnia);
+        userForm s = new userForm(id,imie,nazwisko);
         
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
-        session.delete(s);
+//        session.delete(s);
         session.save(s);
         session.getTransaction().commit();
         session.close();
     }
 
-    public Map<Integer, studentForm> getAllStudents(){
+    public Map<Integer, userForm> getAllUsers(){
         
-        Map<Integer, studentForm> ss = new HashMap<Integer, studentForm>();
+        Map<Integer, userForm> ss = new HashMap<Integer, userForm>();
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         
         int j = 2;
         for (int i = 1; i < j; i++){
-            studentForm ele = (studentForm) session.get(studentForm.class, i); 
+            userForm ele = (userForm) session.get(userForm.class, i); 
             if (ele != null){
                 ss.put(i, ele);
                 j++;
@@ -56,9 +56,9 @@ public class Database implements Serializable {
         return ss;
     }
     
-    public void delete(int id, String imie, String nazwisko, String uczelnia){
+    public void delete(int id, String imie, String nazwisko){
         
-        studentForm s = new studentForm(id,imie,nazwisko,uczelnia);
+        userForm s = new userForm(id,imie,nazwisko);
         
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();

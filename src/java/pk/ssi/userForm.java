@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  *
  * @author SSI4
  */
-public class studentForm {
+public class userForm {
     
     @NotNull
     @Size(min=2, max=30, message ="Prosze podac wartosc pomiedzy 2 a 30")
@@ -22,19 +22,15 @@ public class studentForm {
     @Size(min=2, max=30, message ="Prosze podac wartosc pomiedzy 2 a 30")
     private String nazwisko;
     
-    @NotNull
-    @Size(min=2, max=30, message ="Prosze podac wartosc pomiedzy 2 a 30")
-    private String uczelnia;
     private int id = -1;
 
-    public studentForm(int id, String imie, String nazwisko, String uczelnia) {
+    public userForm(int id, String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
-        this.uczelnia = uczelnia;
         this.id = id;
     }
     
-    public studentForm(){
+    public userForm(){
         
     }
 
@@ -53,15 +49,7 @@ public class studentForm {
     public void setNazwisko(String nazwisko) {
         this.nazwisko = nazwisko;
     }
-
-    public String getUczelnia() {
-        return uczelnia;
-    }
-
-    public void setUczelnia(String uczelnia) {
-        this.uczelnia = uczelnia;
-    }
-
+    
     public int getId() {
         return id;
     }

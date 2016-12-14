@@ -34,22 +34,26 @@
             <div class="right-side-inner">
                 <div class="col-xs-6 col-xs-offset-3">
                     <div class="login-form">
-                        <div class="form-group">
-                            <label for="inputUsernameEmail">Adres email:</label>
-                            <input type="email" class="form-control" id="inputUsernameEmail">
-                            <a href="#">Zapomniałeś email?</a>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 30px;">
-                            <label for="inputPassword">Hasło:</label>
-                            <input type="password" class="form-control" id="inputPassword">
-                            <a href="#">Zapomniałeś hasło?</a>
-                        </div>
-                        <div class="checkbox pull-left">
-                            <label><input type="checkbox">Zapamiętaj mni</label>
-                        </div>
-                        <a href="admin.html"><button class="btn btn-custom pull-right">Zaloguj się</button></a>
-                        <div class="clearfix"></div>
-                        <a id="zarejestruj-sie" href="#" class="pull-right">Zarejestruj się</a>
+                        <c:url var="log_url"  value="/main/logowanie" />    
+                        <form:form commandName="user" method="post" action="${log_url}">
+                            <div class="form-group">
+                                <label for="inputUsernameEmail">Adres email:</label>
+                                <form:input type="email" class="form-control" path="imie" id="imie"/>
+                                <a href="#">Zapomniałeś email?</a>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 30px;">
+                                <label for="inputPassword">Hasło:</label>
+                                <form:input type="password" class="form-control" path="nazwisko" id="nazwisko"/>
+                                <a href="#">Zapomniałeś hasło?</a>
+                            </div>
+                            <div class="checkbox pull-left">
+                                <label><input type="checkbox">Zapamiętaj mni</label>
+                            </div>
+                            <spring:message code="input.zaloguj" var="zaloguj" />
+                             <input class="btn btn-custom pull-right" type="submit" name="LOGOWANIE" value="${zaloguj}"/>
+                            <div class="clearfix"></div>
+                            <a id="zarejestruj-sie" href="<c:url value="/main/rejestracja" />" class="pull-right">Zarejestruj się</a>
+                        </form:form>
                     </div>
                 </div>
             </div>
@@ -58,6 +62,6 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<script src="<c:url value="/resources/jss/scrpit.js" />></script>
 </body>
 </html>

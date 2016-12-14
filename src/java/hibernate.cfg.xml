@@ -45,6 +45,6 @@ Contributor(s):
     <property name="hibernate.connection.username">test</property>
     <property name="hibernate.connection.password">test</property>
     <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <mapping resource="pk/ssi/hibernate/studnet.hbm.xml"/>
+    <mapping resource="pk/ssi/hibernate/user.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
