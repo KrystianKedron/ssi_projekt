@@ -42,8 +42,8 @@ Contributor(s):
 <hibernate-mapping>
   <class name="pk.ssi.userForm" table="STUDNET">
       <id name="id" type="java.lang.Integer" column="id"/>
-      <property name="imie" type="string" column="imie"/>
-      <property name="nazwisko" type="string" column="nazwisko" />
+      <property name="email" type="string" column="email"/>
+      <property name="haslo" type="string" column="haslo" />
   </class>
 
 </hibernate-mapping>

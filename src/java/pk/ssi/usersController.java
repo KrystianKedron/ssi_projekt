@@ -22,6 +22,7 @@ import pk.ssi.hibernate.DataBase;
 public class usersController {
     
     Map<Integer, userForm> usersList = new HashMap<Integer, userForm>();
+    userForm user = new userForm();
     DataBase dat = new DataBase();
     static int id = 0;
     static private boolean init = false;
@@ -48,19 +49,10 @@ public class usersController {
             usersList.put(usr.getId(), usr);
         }
         
+        dat.addUser(usr.getId(), usr.getEmail(), usr.getHaslo());
+        
         ModelMap mapa = new ModelMap();
-        Iterator iter = usersList.keySet().iterator();
-        List<userForm> nowaMapa = new ArrayList<userForm>();
-        
-        while (iter.hasNext()) {
-            Object key = iter.next();
-            if (key!=null)
-                nowaMapa.add(usersList.get(key));
-        }
-        
-        dat.addUser(usr.getId(), usr.getImie(), usr.getNazwisko());
-        
-        mapa.put("users", nowaMapa);
+        mapa.put("user", usr);
         
         return  new ModelAndView("index", mapa);
     }
@@ -71,18 +63,53 @@ public class usersController {
         userForm stud = new userForm();
         ModelMap mapa = new ModelMap();
         mapa.put("user", stud);
+        
         return new ModelAndView("rejestracja", mapa);
     }
     
+    public Boolean zaloguj(userForm usr){
+        
+        for (Iterator iterator = usersList.keySet().iterator(); iterator.hasNext();) {
+            
+            Object key = iterator.next();
+            userForm ele = usersList.get(key);
+            
+            if (usr.getEmail().equals(ele.getEmail())){
+                if (usr.getHaslo().equals(ele.getHaslo())) {
+                    return true;
+                }       
+            }
+        }
+        
+        return false;
+    }
+    
     @RequestMapping(value = "/logowanie", method = RequestMethod.POST)
-    public String logowanie( @RequestParam("imie") String email, @RequestParam("nazwisko") String password) {
+    public ModelAndView logowanie( @RequestParam("email") String email, @RequestParam("haslo") String password) {
         System.out.println(email);
-        return "index";
+        
+        ModelMap mapa = new ModelMap();
+        
+        user = new userForm(id, email, password);
+        System.err.println(user.getEmail() + " " +user.getHaslo());
+        printListUsers();
+        
+        String widok = "";
+        if (zaloguj(user)){
+            widok = "admin";
+        } else {
+            widok = "index";
+        }
+        
+        mapa.put("user", user);
+        
+        return new ModelAndView(widok, mapa);
     }
     
     private void getDataBaseData(){
         
         usersList = dat.getAllUsers();
+        printListUsers();
         id = usersList.size();
         init = true;
     }
@@ -93,9 +120,16 @@ public class usersController {
         if (init == false){
             
             getDataBaseData();
+            user.setId(-1);
         }
         
-        String widok = "";
+        ModelMap mapa = new ModelMap();
+        mapa.put("user", user);
+        
+        return new ModelAndView("index", mapa);
+    }
+    
+    private List<userForm> upadteListUsers(){
         Iterator iter = usersList.keySet().iterator();
         List<userForm> nowaMapa = new ArrayList<userForm>();
         
@@ -105,12 +139,20 @@ public class usersController {
                 nowaMapa.add(usersList.get(key));
         }
         
-        ModelMap mapa = new ModelMap();
-        mapa.put("users", nowaMapa);
-        mapa.put("user", new userForm());
-        widok = "index";
+        return nowaMapa;
+    }
+    
+    private void printListUsers(){
         
-        return new ModelAndView(widok, mapa);
+        Iterator iter = usersList.keySet().iterator();
+        userForm usr;
+        while (iter.hasNext()) {
+            Object key = iter.next();
+            if (key!=null){
+                usr = (userForm) usersList.get(key);
+                System.out.println("User "+ usr.getEmail() + " " + usr.getHaslo() + " " + usr.getId());
+            }
+        }
     }
     
 //    @RequestMapping(value="/usun/{id}", method = RequestMethod.POST)

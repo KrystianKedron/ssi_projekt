@@ -38,12 +38,12 @@
                         <form:form commandName="user" method="post" action="${log_url}">
                             <div class="form-group">
                                 <label for="inputUsernameEmail">Adres email:</label>
-                                <form:input type="email" class="form-control" path="imie" id="imie"/>
+                                <form:input type="email" class="form-control" path="email" id="email"/>
                                 <a href="#">Zapomniałeś email?</a>
                             </div>
                             <div class="form-group" style="margin-bottom: 30px;">
                                 <label for="inputPassword">Hasło:</label>
-                                <form:input type="password" class="form-control" path="nazwisko" id="nazwisko"/>
+                                <form:input type="password" class="form-control" path="haslo" id="haslo"/>
                                 <a href="#">Zapomniałeś hasło?</a>
                             </div>
                             <div class="checkbox pull-left">

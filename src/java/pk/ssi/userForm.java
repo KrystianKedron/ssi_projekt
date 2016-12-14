@@ -7,6 +7,7 @@ package pk.ssi;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
@@ -15,18 +16,19 @@ import javax.validation.constraints.Size;
 public class userForm {
     
     @NotNull
+    @Email(message = "Prosze wpisac email")
     @Size(min=2, max=30, message ="Prosze podac wartosc pomiedzy 2 a 30")
-    private String imie;
+    private String email;
     
     @NotNull
     @Size(min=2, max=30, message ="Prosze podac wartosc pomiedzy 2 a 30")
-    private String nazwisko;
+    private String haslo;
     
     private int id = -1;
 
-    public userForm(int id, String imie, String nazwisko) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
+    public userForm(int id, String email, String haslo) {
+        this.email = email;
+        this.haslo = haslo;
         this.id = id;
     }
     
@@ -34,20 +36,20 @@ public class userForm {
         
     }
 
-    public String getImie() {
-        return imie;
+    public String getEmail() {
+        return email;
     }
 
-    public void setImie(String imie) {
-        this.imie = imie;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getNazwisko() {
-        return nazwisko;
+    public String getHaslo() {
+        return haslo;
     }
 
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
+    public void setHaslo(String haslo) {
+        this.haslo = haslo;
     }
     
     public int getId() {

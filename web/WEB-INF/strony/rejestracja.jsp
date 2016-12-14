@@ -41,13 +41,13 @@
                                 <form:hidden path="id" id="id"/>
                                 <div class="form-group col-md-offset-1" style="margin-top: 30px;">
                                         <label><spring:message code="label.imie" /></label>
-                                        <form:input path="imie" id="imie"/>
-                                        <form:errors path="imie"/>
+                                        <form:input path="email" id="email"/>
+                                        <form:errors path="email"/>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 30px;">
                                         <label><spring:message code="label.nazwisko" /></label>
-                                        <form:input path="nazwisko" id="nazwisko"/>
-                                        <form:errors path="nazwisko"/>
+                                        <form:input path="haslo" id="haslo"/>
+                                        <form:errors path="haslo"/>
                                 </div>  
                                     <spring:message code="input.zapisz" var="zapisz" />
                                     <input class="btn btn-custom pull-right" type="submit" name="zapisz" value="${zapisz}"/>

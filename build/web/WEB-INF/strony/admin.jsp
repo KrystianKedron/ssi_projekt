@@ -1,3 +1,7 @@
+<%@taglib  uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib  uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 
 <body id="admin-wrapper">
@@ -85,12 +89,12 @@
 
                     <div class="col-xs-12" id="przydzielone-zdania">
                         <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
                     </div>
 
 
@@ -103,6 +107,6 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="<c:url value="/resources/jss/scrpit.js" />></script>
 </body>
 </html>
