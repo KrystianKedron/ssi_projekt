@@ -7,12 +7,20 @@ package pk.ssi.hibernate;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.ManagedBean;
 import javax.enterprise.context.SessionScoped;
+import org.hibernate.Query;
+
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import pk.ssi.hibernate.NewHibernateUtil;
 import pk.ssi.userForm;
+import pk.ssi.administratorForm;
 
 /**
  *
@@ -67,4 +75,33 @@ public class DataBase implements Serializable {
         session.close();
     }
     
+    public void searchId(int id){
+        
+        //session.saveOrUpdate(book);
+//        System.out.println("pk.ssi.hibernate.DataBase.searchId()");
+//        session = helper.getSessionFactory().openSession();
+//        FullTextSession fullTextSession = org.hibernate.search.Search.getFullTextSession(session);
+//        Transaction tx = fullTextSession.beginTransaction();
+//        QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity( administratorForm.class ).get();
+//        
+//        System.out.println(id);
+//        org.apache.lucene.search.Query query = qb.keyword().onFields("imie").matching("Krystian").createQuery();
+//          // wrap Lucene query in a org.hibernate.Query
+//        org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, administratorForm.class);
+//          // execute search
+//        List result = hibQuery.list();
+//        
+//        Iterator<administratorForm> it = result.iterator();
+//        while (it.hasNext()) {
+//         System.out.println("pk.ssi.hibernate.DataBase.searchId().weszlo");
+//         administratorForm admin1 = (administratorForm) it.next();
+//         System.out.println(admin1.getImie() + " " + admin1.getNazwisko());
+//        }
+//        tx.commit();
+        session = helper.getSessionFactory().openSession();
+        Query query = session.createQuery("SELECT imie FROM pk.ssi.administratorForm WHERE USR_ID = 1");
+        System.out.println(query.list());
+        
+        session.close();
+    }
 }

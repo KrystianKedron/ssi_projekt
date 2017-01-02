@@ -98,8 +98,11 @@ public class usersController {
         if (zaloguj(user)){
             widok = "admin";
         } else {
+            //stworzenie oblugi bledow
             widok = "index";
         }
+        
+        dat.searchId(1);
         
         mapa.put("user", user);
         
