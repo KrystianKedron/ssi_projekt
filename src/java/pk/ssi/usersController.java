@@ -150,9 +150,10 @@ public class usersController {
         ModelMap mapa = new ModelMap();
         
         user = new userForm(id, email, password);
-        System.out.println(id);
-        System.err.println(user.getEmail() + " " +user.getHaslo());
-        printListUsers();
+        
+//        System.out.println(id);
+//        System.err.println(user.getEmail() + " " +user.getHaslo());
+//        printListUsers();
         
         String widok = "";
         if (zaloguj()){
@@ -168,6 +169,7 @@ public class usersController {
             
             createTasksObjects();
             createWorkersObjects();
+            dat.searchActiveTaskt();
             putDataToMap(mapa);
         } 
 //        System.out.println(widok);

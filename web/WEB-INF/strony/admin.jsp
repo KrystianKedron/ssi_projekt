@@ -90,18 +90,7 @@
                     <input class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;" 
                            type="submit" value="Przydziel zadanie"/>
                     </form:form>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                     <div class="col-xs-12" id="przydzielone-zdania">
                         <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
                         <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>

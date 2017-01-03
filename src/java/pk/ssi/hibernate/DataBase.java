@@ -216,4 +216,28 @@ public class DataBase implements Serializable {
         session.close();
     }
     
+    public void searchActiveTaskt(){
+        
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+            String query = "SELECT opis FROM pk.ssi.zadanieForm where"
+                    + " pracownik_id=1";
+            ArrayList array = (ArrayList) session.createQuery(query).list();
+            if (array != null) {
+            
+                String[] value = new String[array.size()];
+                for (int i = 0; i < array.size(); i++){
+                    value[i] = (String)array.get(i);
+                }
+
+                for (String object : value) {
+                    System.out.println(object);
+                }
+            }
+        
+        session.getTransaction().commit();
+        session.close();
+    }
+    
 }
