@@ -125,7 +125,7 @@ public class DataBase implements Serializable {
             Object[] admin = (Object[])array.get(0);
 
             session.close();
-
+            
             String[] arrayString  = new String[]{String.valueOf(admin[0]), String.valueOf(admin[1]), 
             parser(String.valueOf(admin[2])), parser(String.valueOf(admin[3])) };
             return arrayString;
@@ -154,7 +154,7 @@ public class DataBase implements Serializable {
             for (int j = 0; j < value.length; j ++){
                 
                 arrayString[j] = new String[]{String.valueOf(value[j][0]), 
-                    parser(String.valueOf(value[j][1])), String.valueOf(value[j][2]), 
+                    String.valueOf(value[j][1]), String.valueOf(value[j][2]), 
                     String.valueOf(value[j][3]) };
             }
 //            for (String[] string : arrayString) {
