@@ -67,29 +67,29 @@
                     
                     
                     
-                    <c:url var="przydziel_url" value="/main/test" />  
-                    <form action="${przydziel_url}" method="post" modelAttribute="przydziel">
+                    <c:url var="przydziel_url" value="/main/dodaj" />  
+                    <form:form action="${przydziel_url}" method="post" modelAttribute="przydziel">
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Zadanie: </p>
-                        <select name="" id="" class="input-own">
-                            <c:forEach items="${zadania}" var="zadanie">
-                            <option value="10">${zadanie.opis}</option>
+                        <form:select path="zadanie" name="zadanie" class="input-own">
+                            <c:forEach items="${zadania}" var="zad">
+                                <form:option value="${zad.id}">${zad.opis}</form:option>>
                             </c:forEach>
-                        </select>
+                        </form:select>
                     </div>
 
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Pracownik: </p>
-                        <form:select path="przydziel" name="przydziel" class="input-own">
-                             <c:forEach items="${pracownicy}" var="pracownik">
-                                 <form:option value="${pracownik.id}">${pracownik.imie} 
-                                     ${pracownik.nazwisko} </form:option>>
+                        <form:select path="pracownik" name="pracownik" class="input-own">
+                             <c:forEach items="${pracownicy}" var="pra">
+                                 <form:option value="${pra.id}">${pra.imie} 
+                                     ${pra.nazwisko} </form:option>>
                              </c:forEach>
                         </form:select>
                     </div>
                     <input class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;" 
                            type="submit" value="Przydziel zadanie"/>
-                    </form>
+                    </form:form>
                     
                     
                     

@@ -26,6 +26,9 @@ public class usersController {
     DataBase dat = new DataBase();
     static int id = 0;
     static private boolean init = false;
+    administratorForm admin = new administratorForm();
+    List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
+    List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
     
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView zapisz(@ModelAttribute("user") @Valid userForm usr, BindingResult errors, 
@@ -102,6 +105,45 @@ public class usersController {
         return false;
     }
     
+    public void createTasksObjects(){
+        
+        ListaZadan.clear();
+        
+        String[][] zadaniaData = dat.searchFreeTask();   
+        for (String[] ele : zadaniaData) {
+            ListaZadan.add(new zadanieForm(Integer.valueOf(ele[0]),0,
+                    ele[1],Integer.valueOf(ele[2]),Integer.valueOf(ele[3])));
+        }
+    }
+    
+    public void createAdminObject(){
+        
+        String[] data = dat.searchId(String.valueOf(user.getId()));
+        admin = new administratorForm(Integer.valueOf(data[0]),
+                                      Integer.valueOf(data[1]),
+                                      data[2], data[3]);
+    }
+    
+    public void createWorkersObjects(){
+        
+        ListaPracownikow.clear();
+        
+        String[][] pracownicyData = dat.searchAllEmployers();
+        for (String[] ele : pracownicyData) {
+            ListaPracownikow.add(new pracownikForm(Integer.valueOf(ele[0])
+                    ,0, ele[1],ele[2]));
+        }
+    }
+    
+    public void putDataToMap(ModelMap mapa){
+        
+        mapa.put("admin", admin);
+        mapa.put("zadania", ListaZadan);
+        mapa.put("pracownicy", ListaPracownikow);
+        zadaniaHelper przydziel = new zadaniaHelper();
+        mapa.put("przydziel", przydziel);
+    }
+    
     @RequestMapping(value = "/logowanie", method = RequestMethod.POST)
     public ModelAndView logowanie( @RequestParam("email") String email, @RequestParam("haslo") String password) {
         
@@ -113,9 +155,8 @@ public class usersController {
         printListUsers();
         
         String widok = "";
-        String[] data = null;
         if (zaloguj()){
-            data = dat.searchId(String.valueOf(user.getId()));
+            createAdminObject();
             widok = "admin";
         } else {
             //stworzenie oblugi bledow
@@ -123,48 +164,29 @@ public class usersController {
             mapa.put("user", user);
         }
         
-        System.out.println("Wyszlo");
-        if (data != null){
-            administratorForm admin = null;
-            admin = new administratorForm(Integer.valueOf(data[0]),
-                                          Integer.valueOf(data[1]),
-                                          data[2], data[3]);
-//            System.out.println("OBJECT " + admin.getId() + " " + admin.getImie() + " "
-//        + admin.getNazwisko());
-
-//             dat.searchFreeTask();
-
-            String[][] zadaniaData = dat.searchFreeTask();
-            List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
+        if (admin.getId() != -1){
             
-            for (String[] ele : zadaniaData) {
-                ListaZadan.add(new zadanieForm(Integer.valueOf(ele[0]),0,
-                        ele[1],Integer.valueOf(ele[2]),Integer.valueOf(ele[3])));
-            }
-            
-            String[][] pracownicyData = dat.searchAllEmployers();
-            List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
-            for (String[] ele : pracownicyData) {
-                ListaPracownikow.add(new pracownikForm(Integer.valueOf(ele[0])
-                        ,0, ele[1],ele[2]));
-            }
-            
-            mapa.put("admin", admin);
-            mapa.put("zadania", ListaZadan);
-            mapa.put("pracownicy", ListaPracownikow);
-            List przydziel = new ArrayList();
-            mapa.put("przydziel", przydziel);
+            createTasksObjects();
+            createWorkersObjects();
+            putDataToMap(mapa);
         } 
 //        System.out.println(widok);
         
         return new ModelAndView(widok, mapa);
     }
     
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public String transferForDevice(@ModelAttribute("przydziel") int przydziel) throws Exception {
-        //so now I can use "user" from @ModelAttribute
-        System.out.println(przydziel);
-        return "admin";
+    @RequestMapping(value = "/dodaj", method = RequestMethod.POST)
+    public ModelAndView dodajZadanie(@ModelAttribute("przydziel") zadaniaHelper przydziel) throws Exception {
+
+        System.out.println("Przekazano " + przydziel.getZadanie() + " " + przydziel.getPracownik());
+        
+        dat.assignTask(przydziel.getPracownik(), przydziel.getZadanie());
+        createTasksObjects();
+        
+        ModelMap mapa = new ModelMap();
+        putDataToMap(mapa);
+        
+        return new ModelAndView("admin", mapa);
     }
     
     private void getDataBaseData(){
@@ -182,6 +204,7 @@ public class usersController {
             
             getDataBaseData();
             user.setId(-1);
+            admin.setId(-1);
         }
         
         ModelMap mapa = new ModelMap();

@@ -117,14 +117,13 @@ public class DataBase implements Serializable {
                 + id;
         System.out.println(query);
         session = helper.getSessionFactory().openSession();
-        
+        session.beginTransaction();
         ArrayList array = (ArrayList) session.createQuery(query).list();
-        
+        session.getTransaction().commit();
+        session.close();
         if (array != null) {
          
             Object[] admin = (Object[])array.get(0);
-
-            session.close();
             
             String[] arrayString  = new String[]{String.valueOf(admin[0]), String.valueOf(admin[1]), 
             parser(String.valueOf(admin[2])), parser(String.valueOf(admin[3])) };
@@ -139,8 +138,9 @@ public class DataBase implements Serializable {
         String query = "SELECT id, opis, cena, progres FROM pk.ssi.zadanieForm WHERE pracownik_id is null";
         System.out.println(query);
         session = helper.getSessionFactory().openSession();
-        
+        session.beginTransaction();
         ArrayList array = (ArrayList) session.createQuery(query).list();
+        session.getTransaction().commit();
         session.close();
         
         if (array != null) {
@@ -174,8 +174,9 @@ public class DataBase implements Serializable {
         String query = "SELECT id, imie, nazwisko FROM pk.ssi.pracownikForm";
         System.out.println(query);
         session = helper.getSessionFactory().openSession();
-        
+        session.beginTransaction();
         ArrayList array = (ArrayList) session.createQuery(query).list();
+        session.getTransaction().commit();
         session.close();
         
         if (array != null) {
@@ -201,4 +202,18 @@ public class DataBase implements Serializable {
         }
         return null;
     }
+    
+    public void assignTask(int id_pracownik, int id_zadanie){
+        
+        String query = "UPDATE pk.ssi.zadanieForm" +
+                       " SET pracownik_id=" + id_pracownik +
+                       " WHERE id=" + id_zadanie;
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.createQuery(query).executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
+    
 }
