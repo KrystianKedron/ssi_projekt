@@ -67,15 +67,33 @@ public class usersController {
         return new ModelAndView("rejestracja", mapa);
     }
     
-    public Boolean zaloguj(userForm usr){
+    private String parser(String string){
         
+        String value = "";
+        for (char c : string.toCharArray()) {
+            if (c != ' '){
+                value += c;
+            }
+        }
+        
+        return value;
+    }
+    
+    public Boolean zaloguj(){
+        
+        System.out.println("Weszlo zaloguj");
         for (Iterator iterator = usersList.keySet().iterator(); iterator.hasNext();) {
             
             Object key = iterator.next();
             userForm ele = usersList.get(key);
-            
-            if (usr.getEmail().equals(ele.getEmail())){
-                if (usr.getHaslo().equals(ele.getHaslo())) {
+            // parsowanie elementow
+            String email = parser(ele.getEmail());
+            String haslo = parser(ele.getHaslo());
+            System.out.println("ODCZYTANE" + email + " " + haslo);
+            if (user.getEmail().equals(email)){
+                if (user.getHaslo().equals(haslo)) {
+                    user.setId(ele.getId());
+                    System.out.println("ID USR " + user.getId());
                     return true;
                 }       
             }
@@ -86,25 +104,48 @@ public class usersController {
     
     @RequestMapping(value = "/logowanie", method = RequestMethod.POST)
     public ModelAndView logowanie( @RequestParam("email") String email, @RequestParam("haslo") String password) {
-        System.out.println(email);
         
         ModelMap mapa = new ModelMap();
         
         user = new userForm(id, email, password);
+        System.out.println(id);
         System.err.println(user.getEmail() + " " +user.getHaslo());
         printListUsers();
         
         String widok = "";
-        if (zaloguj(user)){
+        String[] data = null;
+        if (zaloguj()){
+            data = dat.searchId(String.valueOf(user.getId()));
             widok = "admin";
         } else {
             //stworzenie oblugi bledow
             widok = "index";
+            mapa.put("user", user);
         }
         
-        dat.searchId(1);
-        
-        mapa.put("user", user);
+        System.out.println("Wyszlo");
+        if (data != null){
+            administratorForm admin = null;
+            admin = new administratorForm(Integer.valueOf(data[0]),
+                                          Integer.valueOf(data[1]),
+                                          data[2], data[3]);
+//            System.out.println("OBJECT " + admin.getId() + " " + admin.getImie() + " "
+//        + admin.getNazwisko());
+
+//             dat.searchFreeTask();
+
+            String[][] zadaniaData = dat.searchFreeTask();
+            List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
+            
+            for (String[] ele : zadaniaData) {
+                ListaZadan.add(new zadanieForm(Integer.valueOf(ele[0]),0,
+                        ele[1],Integer.valueOf(ele[2]),Integer.valueOf(ele[3])));
+            }
+                    
+            mapa.put("admin", admin);
+            mapa.put("zadania", ListaZadan);
+        } 
+//        System.out.println(widok);
         
         return new ModelAndView(widok, mapa);
     }
@@ -153,7 +194,7 @@ public class usersController {
             Object key = iter.next();
             if (key!=null){
                 usr = (userForm) usersList.get(key);
-                System.out.println("User "+ usr.getEmail() + " " + usr.getHaslo() + " " + usr.getId());
+                System.out.println("User "+ String.valueOf(usr.getEmail().length()) + usr.getEmail() + " " + String.valueOf(usr.getHaslo().length())  + usr.getHaslo() + " " + usr.getId());
             }
         }
     }

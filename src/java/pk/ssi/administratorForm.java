@@ -40,10 +40,11 @@ public class administratorForm {
     @GeneratedValue
     private int id;
 
-    public administratorForm(int id, String imie, String nazwisko) {
+    public administratorForm(int id, int usr_id, String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.id = id;
+        this.usr_id = usr_id;
     }
     
     public administratorForm(){

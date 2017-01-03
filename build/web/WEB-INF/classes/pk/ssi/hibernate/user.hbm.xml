@@ -52,5 +52,20 @@ Contributor(s):
       <property name="imie" type="string" column="IMIE" />
       <property name="nazwisko" type="string" column="NAZWISKO" />
   </class>
+  
+  <class name="pk.ssi.zadanieForm" table="ZADANIE">
+      <id name="id" type="java.lang.Integer" column="ZADANIE_ID"/>
+      <property name="pracownik_id" type="java.lang.Integer" column="PRACOWNIK_ID"/>
+      <property name="opis" type="string" column="OPIS" />
+      <property name="cena" type="java.lang.Integer" column="CENA" />
+      <property name="progres" type="java.lang.Integer" column="PROGRES" />
+  </class>
+  
+  <class name="pk.ssi.pracwonikForm" table="PRACOWNIK">
+      <id name="id" type="java.lang.Integer" column="PRACOWNIK_ID"/>
+      <property name="usr_id" type="java.lang.Integer" column="USR_ID"/>
+      <property name="imie" type="string" column="IMIE" />
+      <property name="nazwisko" type="string" column="NAZWISKO" />
+  </class>
 
 </hibernate-mapping>

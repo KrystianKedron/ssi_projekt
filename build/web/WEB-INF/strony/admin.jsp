@@ -25,7 +25,7 @@
                 </div>
                 <div class="navbar-option pull-right">
                     <a href="#" class="pull-right"><p>Wyloguj</p></a>
-                    <a href="#" class="pull-right"><p>Jan Kowalski <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
+                    <a href="#" class="pull-right"><p>${admin.imie} ${admin.nazwisko}</p> <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
                 </div>
             </div>
         </nav>
@@ -68,25 +68,21 @@
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Zadanie: </p>
                         <select name="" id="" class="input-own">
-                            <option value="10">Wymiana koła</option>
-                            <option value="10">Wymiana koła</option>
-                            <option value="10">Wymiana koła</option>
-                            <option value="10">Wymiana koła</option>
-                            <option value="10">Wymiana koła</option>
+                            <c:forEach items="${zadania}" var="zadanie">
+                            <option value="10">${zadanie.opis}</option>
+                            </c:forEach>
                         </select>
                     </div>
 
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Pracownik: </p>
                         <select name="" id="" class="input-own">
-                            <option value="10">Jan Kowalski</option>
-                            <option value="10">Jan Kowalski</option>
-                            <option value="10">Jan Kowalski</option>
-                            <option value="10">Jan Kowalski</option>
-                            <option value="10">Jan Kowalski</option>
+                             <c:forEach items="${zadania}" var="zadanie">
+                            <option value="10">${zadanie.opis}</option>
+                             </c:forEach>
                         </select>
                     </div>
-
+                    <button class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;">Przydziel zadanie</button>
                     <div class="col-xs-12" id="przydzielone-zdania">
                         <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
                         <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>

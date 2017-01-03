@@ -5,7 +5,9 @@
  */
 package pk.ssi.hibernate;
 
+import com.sun.xml.fastinfoset.util.StringArray;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -75,7 +77,19 @@ public class DataBase implements Serializable {
         session.close();
     }
     
-    public void searchId(int id){
+    private String parser(String string){
+        
+        String value = "";
+        for (char c : string.toCharArray()) {
+            if (c != ' '){
+                value += c;
+            }
+        }
+        
+        return value;
+    }
+    
+    public String[] searchId(String id){
         
         //session.saveOrUpdate(book);
 //        System.out.println("pk.ssi.hibernate.DataBase.searchId()");
@@ -98,10 +112,93 @@ public class DataBase implements Serializable {
 //         System.out.println(admin1.getImie() + " " + admin1.getNazwisko());
 //        }
 //        tx.commit();
+        System.out.println("pk.ssi.hibernate.DataBase.searchId()");
+        String query = "SELECT id, usr_id, imie, nazwisko FROM pk.ssi.administratorForm WHERE USR_ID = "
+                + id;
+        System.out.println(query);
         session = helper.getSessionFactory().openSession();
-        Query query = session.createQuery("SELECT imie FROM pk.ssi.administratorForm WHERE USR_ID = 1");
-        System.out.println(query.list());
         
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array != null) {
+         
+            Object[] admin = (Object[])array.get(0);
+
+            session.close();
+
+            String[] arrayString  = new String[]{String.valueOf(admin[0]), String.valueOf(admin[1]), 
+            parser(String.valueOf(admin[2])), parser(String.valueOf(admin[3])) };
+            return arrayString;
+        }
+        return null;
+    }
+    
+    public String[][] searchFreeTask(){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.searchTask()");
+        String query = "SELECT id, opis, cena, progres FROM pk.ssi.zadanieForm WHERE pracownik_id is null";
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        
+        ArrayList array = (ArrayList) session.createQuery(query).list();
         session.close();
+        
+        if (array != null) {
+            
+            Object[][] value = new Object[array.size()][4];
+            for (int i = 0; i < array.size(); i++){
+                value[i] = (Object[])array.get(i);
+            }
+            
+            String[][] arrayString = new String[array.size()][4];
+            for (int j = 0; j < value.length; j ++){
+                
+                arrayString[j] = new String[]{String.valueOf(value[j][0]), 
+                    parser(String.valueOf(value[j][1])), String.valueOf(value[j][2]), 
+                    String.valueOf(value[j][3]) };
+            }
+//            for (String[] string : arrayString) {
+//                System.out.println("Tablica dane");
+//                for (String ele : string)
+//                System.out.println(ele + " ");
+//            }
+            
+            return arrayString;
+        }
+        return null;
+    }
+    
+    public String[][] searchAllEmployers(){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.searchTask()");
+        String query = "SELECT id, imie, nazwisko FROM pk.ssi.pracownikForm";
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        session.close();
+        
+        if (array != null) {
+            
+            Object[][] value = new Object[array.size()][3];
+            for (int i = 0; i < array.size(); i++){
+                value[i] = (Object[])array.get(i);
+            }
+            
+            String[][] arrayString = new String[array.size()][3];
+            for (int j = 0; j < value.length; j ++){
+                
+                arrayString[j] = new String[]{String.valueOf(value[j][0]), 
+                    parser(String.valueOf(value[j][1])), parser(String.valueOf(value[j][2]))};
+            }
+            for (String[] string : arrayString) {
+                System.out.println("Tablica dane 2");
+                for (String ele : string)
+                System.out.println(ele + " ");
+            }
+            
+            return arrayString;
+        }
+        return null;
     }
 }
