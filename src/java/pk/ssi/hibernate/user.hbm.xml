@@ -61,7 +61,7 @@ Contributor(s):
       <property name="progres" type="java.lang.Integer" column="PROGRES" />
   </class>
   
-  <class name="pk.ssi.pracwonikForm" table="PRACOWNIK">
+  <class name="pk.ssi.pracownikForm" table="PRACOWNIK">
       <id name="id" type="java.lang.Integer" column="PRACOWNIK_ID"/>
       <property name="usr_id" type="java.lang.Integer" column="USR_ID"/>
       <property name="imie" type="string" column="IMIE" />
