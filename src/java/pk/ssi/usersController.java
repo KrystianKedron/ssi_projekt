@@ -141,13 +141,30 @@ public class usersController {
                 ListaZadan.add(new zadanieForm(Integer.valueOf(ele[0]),0,
                         ele[1],Integer.valueOf(ele[2]),Integer.valueOf(ele[3])));
             }
-                    
+            
+            String[][] pracownicyData = dat.searchAllEmployers();
+            List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
+            for (String[] ele : pracownicyData) {
+                ListaPracownikow.add(new pracownikForm(Integer.valueOf(ele[0])
+                        ,0, ele[1],ele[2]));
+            }
+            
             mapa.put("admin", admin);
             mapa.put("zadania", ListaZadan);
+            mapa.put("pracownicy", ListaPracownikow);
+            List przydziel = new ArrayList();
+            mapa.put("przydziel", przydziel);
         } 
 //        System.out.println(widok);
         
         return new ModelAndView(widok, mapa);
+    }
+    
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public String transferForDevice(@ModelAttribute("przydziel") int przydziel) throws Exception {
+        //so now I can use "user" from @ModelAttribute
+        System.out.println(przydziel);
+        return "admin";
     }
     
     private void getDataBaseData(){

@@ -64,7 +64,11 @@
                 <div class="main-panel">
                     <h3 class="text-center">Admin</h3>
                     <h6 class="text-center">Przydziel zadania</h6>
-
+                    
+                    
+                    
+                    <c:url var="przydziel_url" value="/main/test" />  
+                    <form action="${przydziel_url}" method="post" modelAttribute="przydziel">
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Zadanie: </p>
                         <select name="" id="" class="input-own">
@@ -76,13 +80,28 @@
 
                     <div class="col-xs-6">
                         <p class="text-center" style="font-weight: 700;">Pracownik: </p>
-                        <select name="" id="" class="input-own">
-                             <c:forEach items="${zadania}" var="zadanie">
-                            <option value="10">${zadanie.opis}</option>
+                        <form:select path="przydziel" name="przydziel" class="input-own">
+                             <c:forEach items="${pracownicy}" var="pracownik">
+                                 <form:option value="${pracownik.id}">${pracownik.imie} 
+                                     ${pracownik.nazwisko} </form:option>>
                              </c:forEach>
-                        </select>
+                        </form:select>
                     </div>
-                    <button class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;">Przydziel zadanie</button>
+                    <input class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;" 
+                           type="submit" value="Przydziel zadanie"/>
+                    </form>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <div class="col-xs-12" id="przydzielone-zdania">
                         <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
                         <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
