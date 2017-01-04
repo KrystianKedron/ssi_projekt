@@ -328,5 +328,17 @@ public class usersController {
         return new ModelAndView("przydziel_zadania");
     }
     
+    @RequestMapping(value = "/pracownik_grafik", method = RequestMethod.GET)
+    public ModelAndView createPracownik_grafik(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("pracownik_grafik");
+    }
+    
+    @RequestMapping(value = "/pracownik_zadania", method = RequestMethod.GET)
+    public ModelAndView createPracownik_zadania(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("pracownik_zadania");
+    }
+    
     
 }

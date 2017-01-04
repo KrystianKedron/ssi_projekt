@@ -43,8 +43,8 @@
             <div class="sidebar-option">
                 <span class="sidebar-option-title">Pracownik</span>
                 <ul>
-                    <li><a href=""><i class="fa fa-check-circle" aria-hidden="true"></i> Moje zadania</a></li>
-                    <li><a href=""><i class="fa fa-gg-circle" aria-hidden="true"></i> Grafik</a></li>
+                    <li><a href="/ssi_projekt/main/pracownik_zadania"><i class="fa fa-check-circle" aria-hidden="true"></i> Moje zadania</a></li>
+                    <li><a href="/ssi_projekt/main/pracownik_grafik"><i class="fa fa-gg-circle" aria-hidden="true"></i> Grafik</a></li>
                 </ul>
             </div>
 
