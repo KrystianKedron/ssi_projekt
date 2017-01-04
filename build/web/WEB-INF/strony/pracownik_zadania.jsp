@@ -35,9 +35,9 @@
             <div class="sidebar-option">
                 <span class="sidebar-option-title">Pracownik</span>
                 <ul>
-                    <li><a href="#"><i class="fa fa-check-circle" aria-hidden="true"></i> Moje zadania</a></li>
-                    <li><a href="pracownikGrafik.html"><i class="fa fa-gg-circle" aria-hidden="true"></i> Grafik</a></li>
-                    <li><a href="pracownikCennik.html"><i class="fa fa-money" aria-hidden="true"></i> Cennik usług</a></li>
+                    <li><a href="/ssi_projekt/main/pracownik_zadania"><i class="fa fa-check-circle" aria-hidden="true"></i> Moje zadania</a></li>
+                    <li><a href="/ssi_projekt/main/pracownik_grafik"><i class="fa fa-gg-circle" aria-hidden="true"></i> Grafik</a></li>
+                    <li><a href="/ssi_projekt/main/cennik"><i class="fa fa-money" aria-hidden="true"></i> Cennik usług</a></li>
                 </ul>
             </div>
            
