@@ -61,7 +61,7 @@
                             <a data-toggle="collapse" data-parent="#colPracownicy" style="text-decoration: none"><h5>${pra.imie} ${pra.nazwisko}</h5></a>
                             <div class="uzytkownik collapse in">
                                 <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
+                                    <a href="edytuj/${pra.id}" class="button btn btn-success"> Edytuj dane</a>
                                     <button class="btn btn-danger">Usuń pracownika</button>
                                 </span>
                             </div>

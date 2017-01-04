@@ -374,4 +374,29 @@ public class DataBase implements Serializable {
         session.close();
     }
     
+    public pracownikForm getWorker(int id){
+        
+        pracownikForm worker = new pracownikForm();
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        worker = (pracownikForm) session.get(pracownikForm.class, id); 
+        
+        session.getTransaction().commit();
+        session.close();
+        return worker;
+    }
+    
+    public void saveWorker(pracownikForm pra){
+        
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+//        session.delete(pra);
+//        session.save(pra);
+        System.out.println(pra.getImie() + " " + pra.getNazwisko());
+        session.update(pra);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
 }

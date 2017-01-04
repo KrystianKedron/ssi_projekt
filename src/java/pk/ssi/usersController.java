@@ -329,6 +329,45 @@ public class usersController {
         return new ModelAndView("redirect:/main/uzytkownicy", mapa);
     }
     
+    
+    @RequestMapping(value = "/editend")
+    public ModelAndView endEdit(@ModelAttribute("usr") pracownikForm pra){
+        
+        pra.setId(idWorker);
+        pra.setUsr_id(idUsrFK);
+        System.out.println(pra.getId() + " " + pra.getImie() + " " + pra.getNazwisko());
+        
+        dat.saveWorker(pra);
+        
+        ModelMap mapa = new ModelMap();
+        createWorkersObjects();
+        mapa.put("pracownicy", ListaPracownikow);
+        mapa.put("users", dat.getUsers());
+        mapa.put("admin", admin);
+        
+        return new ModelAndView("redirect:/main/uzytkownicy", mapa);
+    }
+    
+    int idWorker = -1;
+    int idUsrFK = -1;
+    @RequestMapping(value = "/edytuj/{id}")
+    public ModelAndView editUzytkownicy(@PathVariable int id){
+        
+        System.out.println("---------------------------------");
+        System.out.println(id);
+        
+        ModelMap mapa = new ModelMap();
+        pracownikForm worker = dat.getWorker(id);
+        mapa.put("usr", worker);
+        idWorker = worker.getId();
+        idUsrFK = worker.getUsr_id();
+        
+        System.out.println("WOREKR!!!!!");
+        System.out.println(worker.getId());
+        
+        return new ModelAndView("edycja_view", mapa);
+    }
+    
     @RequestMapping(value = "/uzytkownicy", method = RequestMethod.GET)
     public ModelAndView createUzytkownicy(){
         

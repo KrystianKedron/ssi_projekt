@@ -44,43 +44,25 @@
             <div class="main-wrapper-inner">
 
                 <div class="main-panel">
-                    <h3 class="text-center">Admin</h3>
-                    <h6 class="text-center">Przydziel zadania</h6>
-                    
-                    
-                    
-                    <c:url var="przydziel_url" value="/main/dodaj" />  
-                    <form:form action="${przydziel_url}" method="post" modelAttribute="przydziel">
-                    <div class="col-xs-6">
-                        <p class="text-center" style="font-weight: 700;">Zadanie: </p>
-                        <form:select path="zadanie" name="zadanie" class="input-own">
-                            <c:forEach items="${zadania}" var="zad">
-                                <form:option value="${zad.id}">${zad.opis}</form:option>>
-                            </c:forEach>
-                        </form:select>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <p class="text-center" style="font-weight: 700;">Pracownik: </p>
-                        <form:select path="pracownik" name="pracownik" class="input-own">
-                             <c:forEach items="${pracownicy}" var="pra">
-                                 <form:option value="${pra.id}">${pra.imie} 
-                                     ${pra.nazwisko} </form:option>>
-                             </c:forEach>
-                        </form:select>
-                    </div>
-                    <input class="btn btn-custom pull-right" style="margin-top:15px; margin-right: 20px;" 
-                           type="submit" value="Przydziel zadanie"/>
-                    </form:form>
-
-                    <div class="col-xs-12" id="przydzielone-zdania">
-                        <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
-                         <c:forEach items="${aktywne}" var="akt">
-                             <p>${akt[0]} ${akt[1]} - <span>${akt[2]}</span> <a href="usun/${akt[2]}" class="fa fa-times" aria-hidden="true"></a></p>
-                         </c:forEach>  
-                    </div>
+                    <h3 class="text-center">EDYCJA</h3>
+                    <h6 class="text-center">wpisz dane</h6>
+                    <div class="register-form">
+                        <div class="col-xs-4 col-xs-offset-4">
+                            <c:url var="uzytkownicy_url"  value="/main/editend" />    
+                            <form:form commandName="usr" method="post" action="${uzytkownicy_url}">
+                                <div class="form-group">
+                                    <label for="inputName">Imie:</label>
+                                    <form:input path="imie" id="imie" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputSurname">Nazwisko:</label>
+                                    <form:input path="nazwisko" id="nazwisko" class="form-control"/>
+                                </div>
+                                <a href="adminUzytkownicy.html"><button class="btn btn-success pull-right">Zapisz zmiany</button></a>
+                                    <div class="clearfix"></div>
+                            </form:form>
+                        </div>
                 </div>
-
             </div>
         </div>
     </div>
