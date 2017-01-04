@@ -216,25 +216,85 @@ public class DataBase implements Serializable {
         session.close();
     }
     
-    public void searchActiveTaskt(){
+    public List<String[]> searchActiveTaskt(){
+        
+        String[][] pracownik = null;
+        Object[][] value = null;
         
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         
-            String query = "SELECT opis FROM pk.ssi.zadanieForm where"
-                    + " pracownik_id=1";
-            ArrayList array = (ArrayList) session.createQuery(query).list();
-            if (array != null) {
-            
-                String[] value = new String[array.size()];
-                for (int i = 0; i < array.size(); i++){
-                    value[i] = (String)array.get(i);
-                }
+        String query = "SELECT id,imie,nazwisko FROM pk.ssi.pracownikForm";
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array != null) {
 
-                for (String object : value) {
-                    System.out.println(object);
+            pracownik = new String[array.size()][3];
+            value = new Object[array.size()][3];
+            
+            for (int i = 0; i < array.size(); i++){
+                value[i] = (Object[])array.get(i);
+                pracownik[i] =  new String[]{String.valueOf(value[i][0]), 
+                    String.valueOf(value[i][1]), String.valueOf(value[i][2])} ;
+            }
+
+//            for (String object[] : pracownik) {
+//                System.out.println("---------------------------");
+//                for (String string : object) {
+//                    System.out.println(string);
+//                }
+//            }
+        }
+        List<String[]> przydzielone_zadania = null;
+        if (pracownik != null){
+            
+            przydzielone_zadania = new ArrayList();
+            for (String[] pra: pracownik){
+
+                query = "SELECT opis FROM pk.ssi.zadanieForm where"
+                        + " pracownik_id="+pra[0];
+                array = (ArrayList) session.createQuery(query).list();
+                if (!array.isEmpty()) {
+
+                    String[] val = new String[array.size()];
+                    for (int _i = 0; _i < array.size(); _i++){
+                        if (array.get(_i) != null){
+                            val[_i] = (String)array.get(_i);
+                        }
+                    }
+                     
+                    for (String object : val) {
+                        if (object != ""){
+                            przydzielone_zadania.add(
+                                            new String[]{pra[1],pra[2],object});
+                        }
+                    }
                 }
             }
+           
+            for (String[] object : przydzielone_zadania) {
+                System.out.println("-------------------------------------");
+                for (String string : object) {
+                    System.out.println(string);
+                }
+            }
+            
+        }
+        session.getTransaction().commit();
+        session.close();
+        
+        return przydzielone_zadania;
+    }
+    
+    public void deleteTask(String opis){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.deleteTask()");
+        
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        String query = "delete from pk.ssi.zadanieForm where opis='" + opis+"'";
+        session.createQuery(query).executeUpdate();
         
         session.getTransaction().commit();
         session.close();

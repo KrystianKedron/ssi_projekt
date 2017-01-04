@@ -50,7 +50,7 @@
                                 <label><input type="checkbox">Zapamiętaj mni</label>
                             </div>
                             <spring:message code="input.zaloguj" var="zaloguj" />
-                             <input class="btn btn-custom pull-right" type="submit" name="LOGOWANIE" value="${zaloguj}"/>
+                            <input class="btn btn-custom pull-right" type="submit" name="LOGOWANIE" value="${zaloguj}"/>
                             <div class="clearfix"></div>
                             <a id="zarejestruj-sie" href="<c:url value="/main/rejestracja" />" class="pull-right">Zarejestruj się</a>
                         </form:form>

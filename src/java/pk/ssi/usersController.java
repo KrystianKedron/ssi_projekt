@@ -30,6 +30,7 @@ public class usersController {
     List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
     List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
     
+    
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView zapisz(@ModelAttribute("user") @Valid userForm usr, BindingResult errors, 
             HttpServletRequest request, HttpServletResponse response){
@@ -140,6 +141,7 @@ public class usersController {
         mapa.put("admin", admin);
         mapa.put("zadania", ListaZadan);
         mapa.put("pracownicy", ListaPracownikow);
+        mapa.put("aktywne", dat.searchActiveTaskt());
         zadaniaHelper przydziel = new zadaniaHelper();
         mapa.put("przydziel", przydziel);
     }
@@ -169,7 +171,7 @@ public class usersController {
             
             createTasksObjects();
             createWorkersObjects();
-            dat.searchActiveTaskt();
+            
             putDataToMap(mapa);
         } 
 //        System.out.println(widok);
@@ -239,6 +241,19 @@ public class usersController {
                 System.out.println("User "+ String.valueOf(usr.getEmail().length()) + usr.getEmail() + " " + String.valueOf(usr.getHaslo().length())  + usr.getHaslo() + " " + usr.getId());
             }
         }
+    }
+    
+    @RequestMapping(value="/usun/{opis}", method = RequestMethod.GET)
+    public ModelAndView usun(@PathVariable String opis, HttpServletRequest request){
+        
+        System.out.println(opis);
+        
+        dat.deleteTask(opis);
+        
+        ModelMap mapa = new ModelMap();
+        putDataToMap(mapa);
+        
+        return new ModelAndView("admin", mapa);
     }
     
 //    @RequestMapping(value="/usun/{id}", method = RequestMethod.POST)

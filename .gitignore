@@ -86,6 +86,8 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 
+### Java ###
+*.class
 
 # BlueJ files
 *.ctxt

@@ -93,16 +93,10 @@
 
                     <div class="col-xs-12" id="przydzielone-zdania">
                         <h5 style="text-transform: uppercase; font-size: 20px;">Przydzielone zadania:</h5>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
-                        <p>Jan kowalski - <span>wymiana koła<</span> <i class="fa fa-times" aria-hidden="true"></i></p>
+                         <c:forEach items="${aktywne}" var="akt">
+                             <p>${akt[0]} ${akt[1]} - <span>${akt[2]}</span> <a href="usun/${akt[2]}" class="fa fa-times" aria-hidden="true"></a></p>
+                         </c:forEach>  
                     </div>
-
-
-
                 </div>
 
             </div>
