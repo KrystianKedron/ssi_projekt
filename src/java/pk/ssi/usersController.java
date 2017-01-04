@@ -326,7 +326,7 @@ public class usersController {
         
         putDataToMap(mapa);
         
-        return new ModelAndView("redirect:/[SERVLET_MAPPING]/uzytkownicy", mapa);
+        return new ModelAndView("redirect:/main/uzytkownicy", mapa);
     }
     
     @RequestMapping(value = "/uzytkownicy", method = RequestMethod.GET)
