@@ -289,4 +289,9 @@ public class usersController {
 //        
 //        return new ModelAndView("user", mapa);
 //    }
+    @RequestMapping(value = "/cennik", method = RequestMethod.GET)
+    public ModelAndView createCennik(){
+        ModelMap mapa = new ModelMap();
+        return new ModelAndView("cennik");
+    }
 }

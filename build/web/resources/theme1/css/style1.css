@@ -1,0 +1,1024 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: "Open Sans", sans-serif !important;
+  min-height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Oswald', sans-serif;
+}
+input:focus {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none;
+  border: 2px #000 solid;
+  border-color: #000;
+  outline: 0;
+}
+input:hover {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+.btn-custom {
+  background: #fe4819;
+  color: #fff;
+  padding: 10px 30px;
+}
+.btn-custom:focus {
+  color: #fff;
+  outline: none;
+}
+.btn-custom:hover {
+  color: #fff;
+}
+.input-own {
+  height: 50px;
+  min-width: 100%;
+  background: white;
+  border: 1px solid black;
+}
+.logo-wrapper-hello {
+  text-align: center;
+}
+.logo-wrapper-hello img {
+  width: 320px;
+}
+.logo-wrapper-hello h4 {
+  font-size: 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 10px;
+  padding: 0;
+}
+
+#register-wrapper .register-wrapper-inner a: hover {
+  background: #ffffff;
+  text-decoration: none;
+}
+ 
+#register-wrapper .register-wrapper-inner a.podpowiedz span {
+  display: none;
+  padding: 2px 3px;
+  margin-left: 12px;
+  width: 250px;
+}
+#register-wrapper .register-wrapper-inner a.podpowiedz:hover span{
+  display: inline;
+  position: absolute;
+  margin: 8px 0 0 20px;
+  border: 1px solid #fe4819;
+  background: rgba(230, 230, 230, 0.93);
+
+ /* background: #dddddd;
+  border: 1px solid #b30000;*/
+  color: #000000;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+  text-align: center;
+}
+#register-wrapper {
+  height: 100%;
+}
+#register-wrapper .register-site
+{ 
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: url('../img/logowanie.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: table;
+
+
+}
+#register-wrapper .register-site .register-bar
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fe4819;
+  height: 70px;
+  margin: 0;
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+}
+#register-wrapper .register-wrapper-inner {
+  background: rgba(230, 230, 230, 0.93);
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  
+}
+
+#register-wrapper .register-wrapper-inner .register-form {
+  padding: 40px 30px;
+  border: 2px solid #fe4819;
+  background: rgba(254, 72, 25, 0.1);
+  border-radius: 10px;
+  width: 50%;
+  min-width: 373px;
+  margin-top: 70px;
+  
+
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel .settings-btns
+{
+  height: 50px;
+  padding: 20px;
+  /*text-align: center;*/
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel .settings-btns h4
+{
+  float: left;
+  margin-right: 20px;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel .settings-btns input .guzik
+{
+  float: left;
+  margin-left:20px;
+  /*margin: : 30px;*/
+
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel .settings-btns span
+{
+  clear: both;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colPracownicy h5
+{
+  text-align: left;
+  padding-left: 60px;
+  font-size: larger;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colPracownicy .guzikiDoEdycji
+{
+  display: inline-block; 
+  min-height: 50px;
+  margin: auto;
+}
+
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colPracownicy .uzytkownik
+{
+   text-align: center;
+   padding-top: 15px;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colKlienci h5
+{
+  text-align: left;
+  padding-left: 60px;
+  font-size: larger;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colKlienci .guzikiDoEdycji
+{
+  display: inline-block; 
+  min-height: 50px;
+  margin: auto;
+}
+
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colKlienci .uzytkownik
+{
+   text-align: center;
+   padding-top: 15px;
+}
+
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colZespoly h5
+{
+  text-align: left;
+  padding-left: 60px;
+}
+
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colZespoly ul
+{
+  text-align: left;
+  padding-left: 80px
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colPakiety h5
+{
+  text-align: left;
+  padding-left: 60px;
+}
+
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #colPakiety ul
+{
+  text-align: left;
+  padding-left: 80px
+}
+
+#login-wrapper {
+  height: 100%;
+}
+#login-wrapper .login-wrapper-inner {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 880px;
+}
+#login-wrapper .login-wrapper-inner .left-side {
+  background: #fe4819;
+  height: 100%;
+  display: table;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper {
+  text-align: right;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper img {
+  width: 80px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-wrapper h4 {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-right: 17px;
+  padding: 0;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc {
+  text-align: right;
+  color: white;
+  padding-left: 50px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc h2 {
+  margin-top: 30px;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc h6 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+#login-wrapper .login-wrapper-inner .left-side .left-side-inner .logo-desc p {
+  font-size: 14px;
+  line-height: 2;
+  margin: 0 0 10px;
+}
+#login-wrapper .login-wrapper-inner .right-side {
+  padding: 0;
+  height: 100%;
+  background: url('../img/logowanie.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: table;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner {
+  background: rgba(230, 230, 230, 0.93);
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  /*min-width: 880px;*/
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form {
+  padding: 40px 30px;
+  border: 2px solid #fe4819;
+  background: rgba(254, 72, 25, 0.1);
+  border-radius: 10px;
+  min-width: 300px;
+  
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group {
+  text-align: center;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group label {
+  font-size: 22px;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group input {
+  margin-bottom: 5px;
+  height: 40px;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form .form-group a {
+  color: black;
+}
+#login-wrapper .login-wrapper-inner .right-side .right-side-inner .login-form #zarejestruj-sie {
+  color: black;
+  padding: 3px 18px 0 0;
+}
+#admin-wrapper .admin-site {
+  height: 100%;
+}
+#admin-wrapper .admin-site nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fe4819;
+  height: 70px;
+  margin: 0;
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+}
+#admin-wrapper .admin-site nav h3 {
+  line-height: 70px;
+  margin: 0;
+}
+#admin-wrapper .admin-site nav .navbar-option p {
+  line-height: 70px;
+  margin: 0;
+  margin: 0 10px;
+}
+#admin-wrapper .admin-site nav .navbar-option a {
+  color: #000;
+}
+#admin-wrapper .admin-site .sidebar-left {
+  width: 300px;
+  background: #f3f3f3;
+  min-height: 100%;
+  padding: 25px 15px;
+  float: left;
+  padding-top: 90px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option {
+  border: 2px solid #fe4819;
+  margin-bottom: 20px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option .sidebar-option-title {
+  font-size: 20px;
+  background: #fe4819;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 700;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li {
+  background: white;
+  padding: 10px 10px;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li a {
+  color: black;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li:hover {
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+#admin-wrapper .admin-site .sidebar-left .sidebar-option ul li:hover a {
+  color: white;
+  text-decoration: none;
+}
+#admin-wrapper .admin-site .main-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-left: 300px;
+  background: #fff;
+  background: url(http://www.sparkbit.pl/wp-content/uploads/2016/06/home_main.jpg) no-repeat top center fixed;
+  /*min-height: 741px;*/
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner {
+  padding: 90px 20px 20px;
+  height: 100%;
+  /*min-height: 741px;*/
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f3f3f3+1,ffffff+100&1+0,0.24+100 */
+  background: -moz-linear-gradient(left, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f3f3f3 0%, rgba(243, 243, 243, 0.99) 1%, rgba(255, 255, 255, 0.24) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#3dffffff', GradientType=1);
+  /* IE6-9 */
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel {
+  width: 100%;
+  min-height: 100%;
+  background: rgba(243, 243, 243, 0.3);
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h3 {
+  font-size: 45px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px 0 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h6 {
+  font-size: 13px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel h5 {
+  display: block;
+  width: 100%;
+  background: #dcdcdc;
+  padding: 15px 0;
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania {
+  margin-top: 30px;
+  margin-right: 20px;
+  padding: 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p {
+  text-align: left;
+  font-size: 16px;
+  padding: 10px 0 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 0;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p i {
+  float: right;
+  padding-right: 15px;
+  cursor: pointer;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p i:hover {
+  color: red;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel #przydzielone-zdania p:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/*kalendarz pochodzi z http://bootsnipp.com/snippets/j20Mj*/
+
+.fc {
+    direction: ltr;
+  text-align: left;
+  }
+  
+.fc table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  }
+  
+html .fc,
+.fc table {
+  font-size: 1em;
+  }
+  
+.fc td,
+.fc th {
+  padding: 0;
+  vertical-align: top;
+  }
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+
+.fc-header td {
+  white-space: nowrap;
+  }
+
+.fc-header-left {
+  width: 25%;
+  text-align: left;
+  }
+  
+.fc-header-center {
+  text-align: center;
+  }
+  
+.fc-header-right {
+  width: 25%;
+  text-align: right;
+  }
+  
+.fc-header-title {
+  display: inline-block;
+  vertical-align: top;
+  }
+  
+.fc-header-title h2 {
+  margin-top: 0;
+  white-space: nowrap;
+  }
+  
+.fc .fc-header-space {
+  padding-left: 10px;
+  }
+  
+.fc-header .fc-button {
+  margin-bottom: 1em;
+  vertical-align: top;
+  }
+  
+/* buttons edges butting together */
+
+.fc-header .fc-button {
+  margin-right: -1px;
+  }
+  
+.fc-header .fc-corner-right,  /* non-theme */
+.fc-header .ui-corner-right { /* theme */
+  margin-right: 0; /* back to normal */
+  }
+  
+/* button layering (for border precedence) */
+  
+.fc-header .fc-state-hover,
+.fc-header .ui-state-hover {
+  z-index: 2;
+  }
+  
+.fc-header .fc-state-down {
+  z-index: 3;
+  }
+
+.fc-header .fc-state-active,
+.fc-header .ui-state-active {
+  z-index: 4;
+  }
+  
+  
+  
+/* Content
+------------------------------------------------------------------------*/
+  
+.fc-content {
+  clear: both;
+  zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
+  }
+  
+.fc-view {
+  width: 100%;
+  overflow: hidden;
+  }
+  
+  
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+.fc-widget-header,    /* <th>, usually */
+.fc-widget-content {  /* <td>, usually */
+  border: 1px solid #ddd;
+  }
+  
+.fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+  background: #fcfcfc;
+  }
+  
+.fc-cell-overlay { /* semi-transparent rectangle while dragging */
+  background: #bcccbc;
+  opacity: .3;
+  filter: alpha(opacity=30); /* for IE */
+  }
+  
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+.fc-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 .6em;
+  overflow: hidden;
+  height: 1.9em;
+  line-height: 1.9em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+
+.fc-text-arrow {
+  margin: 0 .1em;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  vertical-align: baseline; /* for IE7 */
+  }
+
+
+  
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+.fc-state-default {
+  background-color: #f5f5f5;
+  }
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+  }
+
+.fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+.fc-state-down,
+.fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+.fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.55;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  }
+
+  
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+.fc-event-container > * {
+  z-index: 8;
+  }
+
+.fc-event-container > .ui-draggable-dragging,
+.fc-event-container > .ui-resizable-resizing {
+  z-index: 9;
+  }
+   
+.fc-event {
+  border: 1px solid #3a87ad; /* default BORDER color */
+  background-color: #3a87ad; /* default BACKGROUND color */
+  color: #fff;               /* default TEXT color */
+  font-size: .85em;
+  cursor: default;
+  }
+
+a.fc-event {
+  text-decoration: none;
+  }
+  
+a.fc-event,
+.fc-event-draggable {
+  cursor: pointer;
+  }
+  
+.fc-rtl .fc-event {
+  text-align: right;
+  }
+
+.fc-event-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  }
+  
+.fc-event-time,
+.fc-event-title {
+  padding: 0 1px;
+  }
+  
+.fc .ui-resizable-handle {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+  overflow: hidden; /* hacky spaces (IE6/7) */
+  font-size: 300%;  /* */
+  line-height: 50%; /* */
+  }
+  
+  
+  
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+.fc-event-hori {
+  border-width: 1px 0;
+  margin-bottom: 1px;
+  }
+
+.fc-ltr .fc-event-hori.fc-event-start,
+.fc-rtl .fc-event-hori.fc-event-end {
+  border-left-width: 1px;
+  }
+
+.fc-ltr .fc-event-hori.fc-event-end,
+.fc-rtl .fc-event-hori.fc-event-start {
+  border-right-width: 1px;
+  }
+  
+/* resizable */
+  
+.fc-event-hori .ui-resizable-e {
+  top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+  right: -3px      !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: e-resize;
+  }
+  
+.fc-event-hori .ui-resizable-w {
+  top: 0           !important;
+  left: -3px       !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: w-resize;
+  }
+  
+.fc-event-hori .ui-resizable-handle {
+  _padding-bottom: 14px; /* IE6 had 0 height */
+  }
+  
+
+table.fc-border-separate {
+  border-collapse: separate;
+  }
+  
+.fc-border-separate th,
+.fc-border-separate td {
+  border-width: 1px 0 0 1px;
+  }
+  
+.fc-border-separate th.fc-last,
+.fc-border-separate td.fc-last {
+  border-right-width: 1px;
+  }
+  
+.fc-border-separate tr.fc-last th,
+.fc-border-separate tr.fc-last td {
+  border-bottom-width: 1px;
+  }
+  
+.fc-border-separate tbody tr.fc-first td,
+.fc-border-separate tbody tr.fc-first th {
+  border-top-width: 0;
+  }
+  
+  
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+.fc-grid th {
+  text-align: center;
+  }
+
+.fc .fc-week-number {
+  width: 22px;
+  text-align: center;
+  }
+
+.fc .fc-week-number div {
+  padding: 0 2px;
+  }
+  
+.fc-grid .fc-day-number {
+  float: right;
+  padding: 0 2px;
+  }
+  
+.fc-grid .fc-other-month .fc-day-number {
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* for IE */
+  /* opacity with small font can sometimes look too faded
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
+  }
+  
+.fc-grid .fc-day-content {
+  clear: both;
+  padding: 2px 2px 1px; /* distance between events and day edges */
+  }
+  
+/* event styles */
+  
+.fc-grid .fc-event-time {
+  font-weight: bold;
+  }
+  
+/* right-to-left */
+  
+.fc-rtl .fc-grid .fc-day-number {
+  float: left;
+  }
+  
+.fc-rtl .fc-grid .fc-event-time {
+  float: right;
+  }
+  
+  
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+.fc-agenda table {
+  border-collapse: separate;
+  }
+  
+.fc-agenda-days th {
+  text-align: center;
+  }
+  
+.fc-agenda .fc-agenda-axis {
+  width: 50px;
+  padding: 0 4px;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: normal;
+  }
+
+.fc-agenda .fc-week-number {
+  font-weight: bold;
+  }
+  
+.fc-agenda .fc-day-content {
+  padding: 2px 2px 1px;
+  }
+  
+/* make axis border take precedence */
+  
+.fc-agenda-days .fc-agenda-axis {
+  border-right-width: 1px;
+  }
+  
+.fc-agenda-days .fc-col0 {
+  border-left-width: 0;
+  }
+  
+/* all-day area */
+  
+.fc-agenda-allday th {
+  border-width: 0 1px;
+  }
+  
+.fc-agenda-allday .fc-day-content {
+  min-height: 34px; /* TODO: doesnt work well in quirksmode */
+  _height: 34px;
+  }
+  
+/* divider (between all-day and slots) */
+  
+.fc-agenda-divider-inner {
+  height: 2px;
+  overflow: hidden;
+  }
+  
+.fc-widget-header .fc-agenda-divider-inner {
+  background: #eee;
+  }
+  
+/* slot rows */
+  
+.fc-agenda-slots th {
+  border-width: 1px 1px 0;
+  }
+  
+.fc-agenda-slots td {
+  border-width: 1px 0 0;
+  background: none;
+  }
+  
+.fc-agenda-slots td div {
+  height: 20px;
+  }
+  
+.fc-agenda-slots tr.fc-slot0 th,
+.fc-agenda-slots tr.fc-slot0 td {
+  border-top-width: 0;
+  }
+
+.fc-agenda-slots tr.fc-minor th,
+.fc-agenda-slots tr.fc-minor td {
+  border-top-style: dotted;
+  }
+  
+.fc-agenda-slots tr.fc-minor th.ui-widget-header {
+  *border-top-style: solid; /* doesn't work with background in IE6/7 */
+  }
+  
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+.fc-event-vert {
+  border-width: 0 1px;
+  }
+
+.fc-event-vert.fc-event-start {
+  border-top-width: 1px;
+  }
+
+.fc-event-vert.fc-event-end {
+  border-bottom-width: 1px;
+  }
+  
+.fc-event-vert .fc-event-time {
+  white-space: nowrap;
+  font-size: 10px;
+  }
+
+.fc-event-vert .fc-event-inner {
+  position: relative;
+  z-index: 2;
+  }
+  
+.fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .25;
+  filter: alpha(opacity=25);
+  }
+  
+.fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+.fc-select-helper .fc-event-bg {
+  display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+  }
+  
+/* resizable */
+  
+.fc-event-vert .ui-resizable-s {
+  bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+  width: 100%      !important;
+  height: 8px      !important;
+  overflow: hidden !important;
+  line-height: 8px !important;
+  font-size: 11px  !important;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize;
+  }
+  
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   margin-top: 40px;
+   margin-bottom: 40px;
+
+  width: 650px;
+  height: 30px;
+}
+
+progress[value]::-webkit-progress-bar {
+  
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+progress[value]::-webkit-progress-value {
+  
+  background-image:
+     -webkit-linear-gradient(-45deg, 
+                             transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                             rgba(0,0, 0, .1) 66%, transparent 66%),
+     -webkit-linear-gradient(top, 
+                             rgba(255, 255, 255, .25), 
+                             rgba(0, 0, 0, .25)),
+     -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+#admin-wrapper .admin-site .main-wrapper .main-wrapper-inner .main-panel .progress-label
+{
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: inherit;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #fe4819;
+  width: 400px;
+  margin-left: 290px;
+}
