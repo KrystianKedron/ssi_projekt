@@ -306,7 +306,27 @@ public class usersController {
 //    }
     @RequestMapping(value = "/cennik", method = RequestMethod.GET)
     public ModelAndView createCennik(){
-        ModelMap mapa = new ModelMap();
+//        ModelMap mapa = new ModelMap();
         return new ModelAndView("cennik");
     }
+    
+    @RequestMapping(value = "/ustawienia", method = RequestMethod.GET)
+    public ModelAndView createUstawienia(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("ustawienia");
+    }
+    
+    @RequestMapping(value = "/uzytkownicy", method = RequestMethod.GET)
+    public ModelAndView createUzytkownicy(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("uzytkownicy");
+    }
+    
+    @RequestMapping(value = "/przydziel_zadania", method = RequestMethod.GET)
+    public ModelAndView createPrzydziel_zadania(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("przydziel_zadania");
+    }
+    
+    
 }
