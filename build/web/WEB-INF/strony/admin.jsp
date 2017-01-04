@@ -51,10 +51,10 @@
             <div class="sidebar-option">
                 <span class="sidebar-option-title">Klient</span>
                 <ul>
-                    <li><a href=""><i class="fa fa-address-card-o" aria-hidden="true"></i> Moje dane</a></li>
-                    <li><a href=""><i class="fa fa-bicycle" aria-hidden="true"></i> Zamów usługę</a></li>
-                    <li><a href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> Status zamówienia</a></li>
-                    <li><a href=""><i class="fa fa-money" aria-hidden="true"></i> Cennik usług</a></li>
+                    <li><a href="/ssi_projekt/main/klient_dane"><i class="fa fa-address-card-o" aria-hidden="true"></i> Moje dane</a></li>
+                    <li><a href="/ssi_projekt/main/klient_usluga"><i class="fa fa-bicycle" aria-hidden="true"></i> Zamów usługę</a></li>
+                    <li><a href="/ssi_projekt/main/klient_status"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Status zamówienia</a></li>
+                    <li><a href="/ssi_projekt/main/klient_cennik"><i class="fa fa-money" aria-hidden="true"></i> Cennik usług</a></li>
                 </ul>
             </div>
         </div>

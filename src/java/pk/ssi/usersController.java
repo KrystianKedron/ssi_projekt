@@ -340,5 +340,26 @@ public class usersController {
         return new ModelAndView("pracownik_zadania");
     }
     
+    @RequestMapping(value = "/klient_cennik", method = RequestMethod.GET)
+    public ModelAndView createKlient_cennik(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("klient_cennik");
+    }
+    @RequestMapping(value = "/klient_dane", method = RequestMethod.GET)
+    public ModelAndView createKlient_dane(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("klient_dane");
+    }
+    @RequestMapping(value = "/klient_status", method = RequestMethod.GET)
+    public ModelAndView createKlient_status(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("klient_status");
+    }
+    @RequestMapping(value = "/klient_usluga", method = RequestMethod.GET)
+    public ModelAndView createKlient_usluga(){
+//        ModelMap mapa = new ModelMap();
+        return new ModelAndView("klient_usluga");
+    }
+    
     
 }
