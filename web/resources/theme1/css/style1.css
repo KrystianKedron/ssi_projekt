@@ -61,7 +61,7 @@ input:hover {
   padding: 0;
 }
 
-#register-wrapper .register-wrapper-inner a: hover {
+#register-wrapper .register-wrapper-inner a:hover {
   background: #ffffff;
   text-decoration: none;
 }

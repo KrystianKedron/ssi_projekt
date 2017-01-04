@@ -23,6 +23,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 import pk.ssi.hibernate.NewHibernateUtil;
 import pk.ssi.userForm;
 import pk.ssi.administratorForm;
+import pk.ssi.pracownikForm;
 
 /**
  *
@@ -296,6 +297,79 @@ public class DataBase implements Serializable {
         String query = "delete from pk.ssi.zadanieForm where opis='" + opis+"'";
         session.createQuery(query).executeUpdate();
         
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    public List<String[]> getUsers(){
+        
+        String[][] user = null;
+        Object[][] value = null;
+        
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        String query = "SELECT id, email FROM pk.ssi.userForm";
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array != null) {
+
+            user = new String[array.size()][2];
+            value = new Object[array.size()][2];
+            
+            for (int i = 0; i < array.size(); i++){
+                value[i] = (Object[])array.get(i);
+                user[i] =  new String[]{String.valueOf(value[i][0]), 
+                                        String.valueOf(value[i][1])} ;
+            }
+
+//            for (String object[] : pracownik) {
+//                System.out.println("---------------------------");
+//                for (String string : object) {
+//                    System.out.println(string);
+//                }
+//            }
+        }
+        List<String[]> users_list = null;
+        if (user != null){
+            
+            users_list = new ArrayList();
+            for (String[] usr: user){
+
+                query = "SELECT id FROM pk.ssi.pracownikForm where"
+                        + " usr_id="+usr[0];
+                array = (ArrayList) session.createQuery(query).list();
+                if (array.size() == 0) {
+                    
+                    users_list.add(new String[]{usr[0], usr[1]});
+                }
+            }
+           
+//            for (String object : users_list) {
+//                
+//                System.out.println("-------------------------------------");
+//                System.out.println(object);
+//            }
+            
+        }
+        session.getTransaction().commit();
+        session.close();
+        
+        return users_list;
+    }
+    
+    public void addWorker(String id_usr){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.addWorker()");
+        String query = "SELECT id FROM pk.ssi.pracownikForm";
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        int id=array.size()+1;
+        
+        pracownikForm pracownik = new pracownikForm(id,Integer.valueOf(id_usr),"nowy","nowy");
+        session.save(pracownik);
         session.getTransaction().commit();
         session.close();
     }

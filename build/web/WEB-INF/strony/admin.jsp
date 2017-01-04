@@ -33,8 +33,8 @@
             <div class="sidebar-option">
                 <span class="sidebar-option-title">Admin</span>
                 <ul>
-                    <li><a href="/ssi_projekt/main/przydziel_zadania"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Przydziel zadania</a></li>
-                    <li><a href="/ssi_projekt/main/uzytkownicy"><i class="fa fa-male" aria-hidden="true"></i> Użytkownicy</a></li>
+                    <li><a href="<c:url value="/main/przydziel_zadania" />"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Przydziel zadania</a></li>
+                    <li><a href="<c:url value="/main/uzytkownicy" />"><i class="fa fa-male" aria-hidden="true"></i> Użytkownicy</a></li>
                     <li><a href="/ssi_projekt/main/cennik"><i class="fa fa-money" aria-hidden="true"></i> Cennik</a></li>
                     <li><a href="/ssi_projekt/main/ustawienia"><i class="fa fa-cogs" aria-hidden="true"></i> Ustawienia</a></li>
                 </ul>
@@ -105,6 +105,6 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="<c:url value="/resources/jss/scrpit.js" />></script>
+    <script src="<c:url value="/resources/jss/scrpit.js" />"></script>
 </body>
 </html>

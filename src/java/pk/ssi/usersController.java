@@ -171,7 +171,6 @@ public class usersController {
             
             createTasksObjects();
             createWorkersObjects();
-            
             putDataToMap(mapa);
         } 
 //        System.out.println(widok);
@@ -316,10 +315,30 @@ public class usersController {
         return new ModelAndView("ustawienia");
     }
     
+    @RequestMapping(value = "/pracownik/{id}")
+    public ModelAndView przydziel(@PathVariable String id, HttpServletRequest request){
+        
+        ModelMap mapa = new ModelMap();
+        
+        dat.addWorker(id);
+        createWorkersObjects();
+        mapa.put("users", dat.getUsers());
+        
+        putDataToMap(mapa);
+        
+        return new ModelAndView("redirect:/[SERVLET_MAPPING]/uzytkownicy", mapa);
+    }
+    
     @RequestMapping(value = "/uzytkownicy", method = RequestMethod.GET)
     public ModelAndView createUzytkownicy(){
-//        ModelMap mapa = new ModelMap();
-        return new ModelAndView("uzytkownicy");
+        
+        ModelMap mapa = new ModelMap();
+        createWorkersObjects();
+        mapa.put("pracownicy", ListaPracownikow);
+        mapa.put("users", dat.getUsers());
+        mapa.put("admin", admin);
+        
+        return new ModelAndView("uzytkownicy", mapa);
     }
     
     @RequestMapping(value = "/przydziel_zadania", method = RequestMethod.GET)
