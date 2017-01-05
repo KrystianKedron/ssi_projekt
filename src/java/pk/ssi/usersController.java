@@ -27,6 +27,8 @@ public class usersController {
     static int id = 0;
     static private boolean init = false;
     administratorForm admin = new administratorForm();
+    pracownikForm pracownik = new pracownikForm();
+    
     List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
     List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
     
@@ -146,6 +148,21 @@ public class usersController {
         mapa.put("przydziel", przydziel);
     }
     
+    public void putDataToMapPracownik(ModelMap mapa){
+        
+        mapa.put("pracownik", pracownik);
+    }
+    
+    public void putDataToMapUser(ModelMap mapa){
+        
+        mapa.put("user", user);
+    }
+    
+    public void createPracownikObject(){
+        
+        pracownik = dat.getWorker(user.getId());
+    }
+    
     @RequestMapping(value = "/logowanie", method = RequestMethod.POST)
     public ModelAndView logowanie( @RequestParam("email") String email, @RequestParam("haslo") String password) {
         
@@ -159,12 +176,22 @@ public class usersController {
         
         String widok = "";
         if (zaloguj()){
-            createAdminObject();
-            widok = "admin";
+            if (dat.cheakUser(user.getId()).equals("admin")){
+                
+                createAdminObject();
+                widok = "admin";
+            } else if (dat.cheakUser(user.getId()).equals("pracownik")){
+                
+                createPracownikObject();
+                widok = "pracownik_grafik";
+            } else {
+                
+                widok = "klient_usluga";
+            }
         } else {
             //stworzenie oblugi bledow
             widok = "index";
-            mapa.put("user", user);
+            putDataToMapUser(mapa);
         }
         
         if (admin.getId() != -1){
@@ -172,7 +199,13 @@ public class usersController {
             createTasksObjects();
             createWorkersObjects();
             putDataToMap(mapa);
-        } 
+        }  else if (pracownik.getId() != 1) {
+            
+            putDataToMapPracownik(mapa);
+        } else {
+            
+            putDataToMapUser(mapa);
+        }
 //        System.out.println(widok);
         
         return new ModelAndView(widok, mapa);
@@ -208,6 +241,7 @@ public class usersController {
             getDataBaseData();
             user.setId(-1);
             admin.setId(-1);
+            pracownik.setId(-1);
         }
         
         ModelMap mapa = new ModelMap();

@@ -47,7 +47,7 @@ public class DataBase implements Serializable {
         session.getTransaction().commit();
         session.close();
     }
-
+    
     public Map<Integer, userForm> getAllUsers(){
         
         Map<Integer, userForm> ss = new HashMap<Integer, userForm>();
@@ -92,27 +92,6 @@ public class DataBase implements Serializable {
     
     public String[] searchId(String id){
         
-        //session.saveOrUpdate(book);
-//        System.out.println("pk.ssi.hibernate.DataBase.searchId()");
-//        session = helper.getSessionFactory().openSession();
-//        FullTextSession fullTextSession = org.hibernate.search.Search.getFullTextSession(session);
-//        Transaction tx = fullTextSession.beginTransaction();
-//        QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity( administratorForm.class ).get();
-//        
-//        System.out.println(id);
-//        org.apache.lucene.search.Query query = qb.keyword().onFields("imie").matching("Krystian").createQuery();
-//          // wrap Lucene query in a org.hibernate.Query
-//        org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, administratorForm.class);
-//          // execute search
-//        List result = hibQuery.list();
-//        
-//        Iterator<administratorForm> it = result.iterator();
-//        while (it.hasNext()) {
-//         System.out.println("pk.ssi.hibernate.DataBase.searchId().weszlo");
-//         administratorForm admin1 = (administratorForm) it.next();
-//         System.out.println(admin1.getImie() + " " + admin1.getNazwisko());
-//        }
-//        tx.commit();
         System.out.println("pk.ssi.hibernate.DataBase.searchId()");
         String query = "SELECT id, usr_id, imie, nazwisko FROM pk.ssi.administratorForm WHERE USR_ID = "
                 + id;
@@ -397,6 +376,33 @@ public class DataBase implements Serializable {
         session.update(pra);
         session.getTransaction().commit();
         session.close();
+    }
+    
+    public String cheakUser(int user_id){
+        
+        String query = "SELECT id FROM pk.ssi.pracownikForm WHERE usr_id="+user_id;
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array.isEmpty()){
+            
+            query = "SELECT id FROM pk.ssi.administratorForm WHERE usr_id="+user_id;
+            System.out.println(query);
+            session = helper.getSessionFactory().openSession();
+            session.beginTransaction();
+            array = (ArrayList) session.createQuery(query).list();
+            
+            if (array.isEmpty()) {
+                
+                return "usr";
+            }
+            
+            return "admin";
+        }
+        
+        return "pracownik";
     }
     
 }
