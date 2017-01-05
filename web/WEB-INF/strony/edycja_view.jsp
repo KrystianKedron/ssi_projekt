@@ -24,7 +24,7 @@
                     <h3>ME&BIKE</h3>
                 </div>
                 <div class="navbar-option pull-right">
-                    <a href="#" class="pull-right"><p>Wyloguj</p></a>
+                    <a href="<c:url value="http://localhost:8080/SSI/main" />" class="pull-right"><p>Wyloguj</p></a>
                     <a href="#" class="pull-right"><p>${admin.imie} ${admin.nazwisko}</p> <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
                 </div>
             </div>

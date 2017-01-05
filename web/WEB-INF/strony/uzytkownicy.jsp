@@ -23,7 +23,7 @@
             <div class="container-fluid">
                 <div class="navbar-option pull-left">
                     <label>
-                        <a href="index.html" style="text-decoration: none"><h3 style="color: black">ME&BIKE</h3></a>
+                        <a href="http://localhost:8080/SSI/main" style="text-decoration: none"><h3 style="color: black">ME&BIKE</h3></a>
                     </label>
                 </div>
                 <div class="navbar-option pull-right">

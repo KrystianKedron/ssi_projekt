@@ -24,6 +24,7 @@ import pk.ssi.hibernate.NewHibernateUtil;
 import pk.ssi.userForm;
 import pk.ssi.administratorForm;
 import pk.ssi.pracownikForm;
+import pk.ssi.zadanieForm;
 
 /**
  *
@@ -403,6 +404,37 @@ public class DataBase implements Serializable {
         }
         
         return "pracownik";
+    }
+    
+    
+    public pracownikForm searchWorker(String usr_id){
+        
+        String query = "SELECT id FROM pk.ssi.pracownikForm WHERE usr_id="+usr_id;
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        Integer id = (Integer) session.createQuery(query).uniqueResult();
+        pracownikForm worker = getWorker(id);
+        
+        return worker;
+        
+    }
+    
+    public void createTask(String opis){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.addWorker()");
+        String query = "SELECT id FROM pk.ssi.zadanieForm";
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        int id=array.size()+1;
+        
+        query = "INSERT INTO ZADANIE VALUES ("+id+",NULL,'"+opis+"',100,0)";
+        
+        session.createSQLQuery(query).executeUpdate();
+        session.getTransaction().commit();
+        session.close();
     }
     
 }

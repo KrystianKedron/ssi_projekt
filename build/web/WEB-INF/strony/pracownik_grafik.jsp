@@ -24,12 +24,12 @@
             <div class="container-fluid">
                 <div class="navbar-option pull-left">
                     <label>
-                        <a href="index.html" style="text-decoration: none"><h3 style="color: black">ME&BIKE</h3></a>
+                        <a href="http://localhost:8080/SSI/main" style="text-decoration: none"><h3 style="color: black">ME&BIKE</h3></a>
                     </label>
                 </div>
                 <div class="navbar-option pull-right">
-                    <a href="index.html" class="pull-right"><p>Wyloguj</p></a>
-                    <a href="#" class="pull-right"><p>Jan Kowalski <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
+                    <a href="http://localhost:8080/SSI/main" class="pull-right"><p>Wyloguj</p></a>
+                    <a href="#" class="pull-right"><p>${pracownik.imie} ${pracownik.nazwisko}<i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
                 </div>
             </div>
         </nav>

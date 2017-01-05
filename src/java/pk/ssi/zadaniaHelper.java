@@ -13,7 +13,16 @@ public class zadaniaHelper {
     
     private int zadanie;
     private int pracownik;
+    private String zadanieString;
 
+    public String getZadanieString() {
+        return zadanieString;
+    }
+
+    public void setZadanieString(String zadanieString) {
+        this.zadanieString = zadanieString;
+    }
+    
     public int getZadanie() {
         return zadanie;
     }

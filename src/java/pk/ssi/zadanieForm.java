@@ -28,6 +28,15 @@ public class zadanieForm {
         this.cena = cena;
         this.progres = progres;
     }
+    
+    public zadanieForm(int id, String opis, int cena, int progres) {
+        
+        this.id = id;
+        this.opis = opis;
+        this.cena = cena;
+        this.progres = progres;
+    }
+
 
     public int getProgres() {
         return progres;

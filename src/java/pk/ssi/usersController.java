@@ -160,7 +160,7 @@ public class usersController {
     
     public void createPracownikObject(){
         
-        pracownik = dat.getWorker(user.getId());
+        pracownik = dat.searchWorker(String.valueOf(user.getId()));
     }
     
     @RequestMapping(value = "/logowanie", method = RequestMethod.POST)
@@ -181,11 +181,14 @@ public class usersController {
                 createAdminObject();
                 widok = "admin";
             } else if (dat.cheakUser(user.getId()).equals("pracownik")){
-                
+
                 createPracownikObject();
                 widok = "pracownik_grafik";
             } else {
                 
+                zadaniaHelper przydziel = new zadaniaHelper();
+                mapa.put("przydziel", przydziel);
+                putDataToMapUser(mapa);
                 widok = "klient_usluga";
             }
         } else {
@@ -194,16 +197,20 @@ public class usersController {
             putDataToMapUser(mapa);
         }
         
+        System.out.println("ADMIN" + String.valueOf(admin.getId()));
+        
         if (admin.getId() != -1){
-            
+            System.out.println("WESZLO ADMIN");
             createTasksObjects();
             createWorkersObjects();
             putDataToMap(mapa);
-        }  else if (pracownik.getId() != 1) {
+        }  else if (pracownik.getId() != -1) {
             
+            System.out.println("WESZLO PRACOWNIK");
             putDataToMapPracownik(mapa);
         } else {
             
+            System.out.println("WESZLO USER");
             putDataToMapUser(mapa);
         }
 //        System.out.println(widok);
@@ -212,7 +219,7 @@ public class usersController {
     }
     
     @RequestMapping(value = "/dodaj", method = RequestMethod.POST)
-    public ModelAndView dodajZadanie(@ModelAttribute("przydziel") zadaniaHelper przydziel) throws Exception {
+    public ModelAndView dodaj(@ModelAttribute("przydziel") zadaniaHelper przydziel) throws Exception {
 
         System.out.println("Przekazano " + przydziel.getZadanie() + " " + przydziel.getPracownik());
         
@@ -223,6 +230,19 @@ public class usersController {
         putDataToMap(mapa);
         
         return new ModelAndView("admin", mapa);
+    }
+    
+    @RequestMapping(value = "/dodajZadanie", method = RequestMethod.POST)
+    public ModelAndView dodajZadanie(@ModelAttribute("przydziel") zadaniaHelper przydziel) throws Exception {
+
+        System.out.println("Przekazano " + przydziel.getZadanieString());
+        
+        dat.createTask(przydziel.getZadanieString());
+        
+        ModelMap mapa = new ModelMap();
+        putDataToMap(mapa);
+        
+        return new ModelAndView("klient_usluga", mapa);
     }
     
     private void getDataBaseData(){
@@ -286,7 +306,7 @@ public class usersController {
         ModelMap mapa = new ModelMap();
         putDataToMap(mapa);
         
-        return new ModelAndView("admin", mapa);
+        return new ModelAndView("redirect:/main/admin", mapa);
     }
     
 //    @RequestMapping(value="/usun/{id}", method = RequestMethod.POST)

@@ -30,8 +30,8 @@
                     </label>
                 </div>
                 <div class="navbar-option pull-right">
-                    <a href="index.html" class="pull-right"><p>Wyloguj</p></a>
-                    <a href="#" class="pull-right"><p>Gabriela Maj <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
+                    <a href="http://localhost:8080/SSI/main" class="pull-right"><p>Wyloguj</p></a>
+                    <a href="#" class="pull-right"><p>${user.email}<i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
                 </div>
             </div>
         </nav>
@@ -52,40 +52,20 @@
                <div class="main-panel">
                     <h3 class="text-center">Złóż zamówienie</h3>
                     <h6 class="text-center">Zaufaj nam</h6>
-                    <div class="zamow-form">
-                        <form action="#" >
-                        
-                            <div class="col-xs-6" style="padding-top: 10px;">
-                                <p class="text-center" style="font-weight: 700; font-size: larger; text-align: left;">Zadanie:</p>
-                                <select name="" id="" class="input-own">
-                                    <option value="10">Hamulce</option>
-                                    <option value="10">Napęd</option>
-                                    <option value="10">Przerzutki</option>
-                                    <option value="10">Stery</option>
-                                    <option value="10">Zawieszenie</option>
-                                    <option value="10">Koła/ opony</option>
-                                    <option value="10">Montaż i regulacja</option>
-                                    <option value="10">Serwis napędu</option>
-                                    <option value="10">Przegląd</option>
-                                    <option value="10">Inne</option>
-                                </select>
-                            </div>
-
-                           <div class="col-xs-6" style="padding-top: 10px;">
-                                <p class="text-center" style="font-weight: 700; font-size: larger; text-align: left;">Dostępne terminy odbioru roweru</p>
-                                <select name="" id="" class="input-own">
-                                    <option value="10">18-01-2016</option>
-                                    <option value="10">19-01-2016</option>
-                                    <option value="10">25-01-2016</option>
-                                    <option value="10">27-01-2016</option>
-                                    
-                                </select>
-                            </div>
-
-                            <input type="submit" class="btn btn-success" name="" value="Złóż zamówienie" style="margin-top: 250px; float: right; margin-right: 20px; font-size: larger; " />
-
-                            </div>
-                        </form>
+                    <div class="zamow-form">                        
+                        <div class="col-xs-6" style="padding-top: 10px;">
+                            <p class="text-center" style="font-weight: 700; font-size: larger; text-align: left;">Zadanie:</p>
+                            <c:url var="przydziel_url" value="/main/dodajZadanie" /> 
+                            <form:form action="${przydziel_url}" method="post" modelAttribute="przydziel">
+                                <div class="col-xs-6">
+                                    <p class="text-center" style="font-weight: 700;">Zadanie: </p>
+                                    <form:select path="zadanieString" name="zadanieString" class="input-own">
+                                            <form:option value="Hamulce">Hamlulce</form:option>>
+                                    </form:select>
+                                </div>
+                                <input type="submit" class="btn btn-success" name="" value="Złóż zamówienie" style="margin-top: 250px; float: right; margin-right: 20px; font-size: larger; " />
+                            </form:form>
+                        </div>
                     </div>
                     
                     
@@ -99,6 +79,6 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <script src="js/script.js"></script>
+    <script src="<c:url value="/resources/jss/scrpit.js" />"></script>
 </body>
 </html>
