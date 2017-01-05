@@ -31,6 +31,7 @@ public class usersController {
     
     List<zadanieForm> ListaZadan = new ArrayList<zadanieForm>();
     List<pracownikForm> ListaPracownikow = new ArrayList<pracownikForm>();
+    ArrayList<String> cennik = new ArrayList<String>();
     
     
     @RequestMapping(method = RequestMethod.POST)
@@ -359,8 +360,84 @@ public class usersController {
 //    }
     @RequestMapping(value = "/cennik", method = RequestMethod.GET)
     public ModelAndView createCennik(){
+        HashMap<Integer,cennikForm> array = dat.get_data_from_price_list();
+//        System.out.println("-----------------");
+//        cennikForm cena = array.get(1);
+//        System.out.println(cena.getWartosc());
+//        System.out.println("-----------------------------");
+
+        Cennik cennik = new Cennik();
+        cennik.nazwa1=array.get(1).getKolumna();
+        cennik.nazwa2=array.get(2).getKolumna();
+        cennik.nazwa3=array.get(3).getKolumna();
+        cennik.nazwa4=array.get(4).getKolumna();
+        cennik.nazwa5=array.get(5).getKolumna();
+        cennik.nazwa6=array.get(6).getKolumna();
+        cennik.nazwa7=array.get(7).getKolumna();
+        cennik.nazwa8=array.get(8).getKolumna();
+        cennik.nazwa9=array.get(9).getKolumna();
+        cennik.nazwa10=array.get(10).getKolumna();
+        cennik.nazwa11=array.get(11).getKolumna();
+        cennik.nazwa12=array.get(12).getKolumna();
+        cennik.nazwa13=array.get(13).getKolumna();
+        cennik.nazwa14=array.get(14).getKolumna();
+        cennik.nazwa15=array.get(15).getKolumna();
+        cennik.nazwa16=array.get(16).getKolumna();
+        cennik.nazwa17=array.get(17).getKolumna();
+        cennik.nazwa18=array.get(18).getKolumna();
+        cennik.nazwa19=array.get(19).getKolumna();
+        cennik.nazwa20=array.get(20).getKolumna();
+        cennik.nazwa21=array.get(21).getKolumna();
+        cennik.nazwa22=array.get(22).getKolumna();
+        cennik.nazwa23=array.get(23).getKolumna();
+        cennik.nazwa24=array.get(24).getKolumna();
+        cennik.nazwa25=array.get(25).getKolumna();
+        cennik.nazwa26=array.get(26).getKolumna();
+        cennik.nazwa27=array.get(27).getKolumna();
+        cennik.nazwa28=array.get(28).getKolumna();
+        cennik.nazwa29=array.get(29).getKolumna();
+        cennik.nazwa30=array.get(30).getKolumna();
+        cennik.nazwa31=array.get(31).getKolumna();
+        
+        cennik.wart1= array.get(1).getWartosc();
+        cennik.wart2= array.get(2).getWartosc();
+        cennik.wart3= array.get(3).getWartosc();
+        cennik.wart4= array.get(4).getWartosc();
+        cennik.wart5= array.get(5).getWartosc();
+        cennik.wart6= array.get(6).getWartosc();
+        cennik.wart7= array.get(7).getWartosc();
+        cennik.wart8= array.get(8).getWartosc();
+        cennik.wart9= array.get(9).getWartosc();
+        cennik.wart10= array.get(10).getWartosc();
+        cennik.wart11= array.get(11).getWartosc();
+        cennik.wart12= array.get(12).getWartosc();
+        cennik.wart13= array.get(13).getWartosc();
+        cennik.wart14= array.get(14).getWartosc();
+        cennik.wart15= array.get(15).getWartosc();
+        cennik.wart16= array.get(16).getWartosc();
+        cennik.wart17= array.get(17).getWartosc();
+        cennik.wart18= array.get(18).getWartosc();
+        cennik.wart19= array.get(19).getWartosc();
+        cennik.wart20= array.get(20).getWartosc();
+        cennik.wart21= array.get(21).getWartosc();
+        cennik.wart22= array.get(22).getWartosc();
+        cennik.wart23= array.get(23).getWartosc();
+        cennik.wart24= array.get(24).getWartosc();
+        cennik.wart25= array.get(25).getWartosc();
+        cennik.wart26= array.get(26).getWartosc();
+        cennik.wart27= array.get(27).getWartosc();
+        cennik.wart28= array.get(28).getWartosc();
+        cennik.wart29= array.get(29).getWartosc();
+        cennik.wart30= array.get(30).getWartosc();
+        cennik.wart31= array.get(31).getWartosc();
+        
+        ModelMap mapa = new ModelMap();
+        mapa.put("cennik", cennik);
+        
+//        ArrayList<String> array1 = dat.get_data_from_price_list1();
+//        System.out.println(array1);
 //        ModelMap mapa = new ModelMap();
-        return new ModelAndView("cennik");
+        return new ModelAndView("cennik", mapa);
     }
     
     @RequestMapping(value = "/ustawienia", method = RequestMethod.GET)

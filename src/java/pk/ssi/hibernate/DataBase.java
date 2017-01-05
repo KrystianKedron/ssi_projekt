@@ -23,8 +23,12 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 import pk.ssi.hibernate.NewHibernateUtil;
 import pk.ssi.userForm;
 import pk.ssi.administratorForm;
+
+import pk.ssi.cennikForm;
+
 import pk.ssi.pracownikForm;
 import pk.ssi.zadanieForm;
+
 
 /**
  *
@@ -281,14 +285,50 @@ public class DataBase implements Serializable {
         session.close();
     }
     
-    public List<String[]> getUsers(){
+
+    public HashMap<Integer, cennikForm> get_data_from_price_list()
+    {
         
-        String[][] user = null;
-        Object[][] value = null;
+//        String query = "SELECT * FROM pk.ssi.cennikForm WHERE category=" + category;
+//        System.out.println(query);
+//        session = helper.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        ArrayList array = (ArrayList) session.createQuery(query).list();
+//        session.getTransaction().commit();
+//        session.close();
+//      
+        HashMap<Integer, cennikForm> ss = new HashMap<Integer,cennikForm>();
+
         
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         
+
+        int j = 2;
+        for (int i = 1; i < j; i++){
+            cennikForm ele = (cennikForm) session.get(cennikForm.class, i); 
+            
+//            System.out.println("pk.ssi " + ele.getKolumna());
+            
+            if (ele != null){
+                System.out.println("w if");
+                ss.put(i, ele);
+                j++;
+            }
+        }
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        return ss;
+    }
+    
+    
+
+    public List<String[]> getUsers(){
+        
+        String[][] user = null;
+        Object[][] value = null;
         String query = "SELECT id, email FROM pk.ssi.userForm";
         ArrayList array = (ArrayList) session.createQuery(query).list();
         
@@ -342,10 +382,14 @@ public class DataBase implements Serializable {
         
         System.out.println("pk.ssi.hibernate.DataBase.addWorker()");
         String query = "SELECT id FROM pk.ssi.pracownikForm";
+
         System.out.println(query);
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         ArrayList array = (ArrayList) session.createQuery(query).list();
+
+        
+
         int id=array.size()+1;
         
         pracownikForm pracownik = new pracownikForm(id,Integer.valueOf(id_usr),"nowy","nowy");
@@ -404,6 +448,7 @@ public class DataBase implements Serializable {
         }
         
         return "pracownik";
+
     }
     
     

@@ -61,10 +61,10 @@
                             <a href="#colHamulce" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Hamulce</h5></a>
                             <div id="colHamulce" class="collapse in">
                                 <ul>
-                                    <li>Regulacje hamulca 10zł</li>
-                                    <li>Wymiana i regulacja klocków 10zł</li>
-                                    <li>Wymiana linki z regulacją 10zł</li>
-                                    <li>Zalanie, odpowietrzenie hamulca tarczowego 45zł</li>
+                                    <li>${cennik.nazwa1} ${cennik.wart1}zł</li>
+                                    <li>${cennik.nazwa2} ${cennik.wart2}zł</li>
+                                    <li>${cennik.nazwa3} ${cennik.wart3}zł</li>
+                                    <li>${cennik.nazwa4} ${cennik.wart4}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -72,10 +72,10 @@
                             <a href="#colNaped" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Napęd</h5></a>
                             <div id="colNaped" class="collapse">
                                 <ul>
-                                    <li>Smarowanie łańcucha 5zł</li>
-                                    <li>Czyszczenie i smarowanie łańcucha 10zł</li>
-                                    <li>Wymiana łańcucha, kasety, wolnobiegu, pedałów 10zł</li>
-                                    <li>Serwis suportu lub wymiana wkładu suportu 25zł</li>
+                                    <li>${cennik.nazwa5} ${cennik.wart5}zł</li>
+                                    <li>${cennik.nazwa6} ${cennik.wart6}zł</li>
+                                    <li>${cennik.nazwa7} ${cennik.wart7}zł</li>
+                                    <li>${cennik.nazwa8} ${cennik.wart8}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -84,10 +84,10 @@
                             <a href="#colPrzerzutki" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Przerzutki</h5></a>
                             <div id="colPrzerzutki" class="collapse">
                                 <ul>
-                                    <li>Regulacja przerzutki 15zł</li>
-                                    <li>Wymiana i regulacja przerzutki 20zł</li>
-                                    <li>Wymiana linki z regulacją przerzutki 20zł</li>
-                                    <li>Wymiana manetki i regulacja przerzutki 30zł</li>
+                                    <li>${cennik.nazwa9} ${cennik.wart9}zł</li>
+                                    <li>${cennik.nazwa10} ${cennik.wart10}zł</li>
+                                    <li>${cennik.nazwa11} ${cennik.wart11}zł</li>
+                                    <li>${cennik.nazwa12} ${cennik.wart12}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -95,9 +95,9 @@
                             <a href="#colStery" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Stery</h5></a>
                             <div id="colStery" class="collapse">
                                 <ul>
-                                    <li>Kasowanie luzu w sterach 5zł</li>
-                                    <li>Czyszczenie i smarowanie łożysk sterów 20zł</li>
-                                    <li>Wymiana sterów 30zł</li>
+                                    <li>${cennik.nazwa13} ${cennik.wart13}zł</li>
+                                    <li>${cennik.nazwa14} ${cennik.wart14}zł</li>
+                                    <li>${cennik.nazwa15} ${cennik.wart15}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -106,9 +106,9 @@
                             <a href="#colZawieszenie" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Zawieszenie</h5></a>
                             <div id="colZawieszenie" class="collapse">
                                 <ul>
-                                    <li>Serwis amortyzatora olejowego 150zł</li>
-                                    <li>Serwis amortyzatora sprężynowego 100zł</li>
-                                    <li>Regulacja ciśnienia 5zł</li>
+                                    <li>${cennik.nazwa16} ${cennik.wart16}zł</li>
+                                    <li>${cennik.nazwa17} ${cennik.wart17}zł</li>
+                                    <li>${cennik.nazwa18} ${cennik.wart18}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -117,11 +117,11 @@
                             <a href="#colKolaOpony" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Koła i opony</h5></a>
                             <div id="colKolaOpony" class="collapse">
                                 <ul>
-                                    <li>Pompowanie kół 0zł !</li>
-                                    <li>Wymiana dętki lub opony 10-20zł* </li>
-                                    <li>Centrowanie koła 20-40zł*</li>
-                                    <li>Serwis piasty 30zł</li>
-                                    <li>Zaplatanie koła 50zł</li>
+                                    <li>${cennik.nazwa19} ${cennik.wart19}zł !</li>
+                                    <li>${cennik.nazwa20} ${cennik.wart20}zł* </li>
+                                    <li>${cennik.nazwa21} ${cennik.wart21}zł*</li>
+                                    <li>${cennik.nazwa22} ${cennik.wart22}zł</li>
+                                    <li>${cennik.nazwa23} ${cennik.wart23}zł</li>
                                     <br/>
                                     <li style="list-style-type: none"><i>* cena zależna od czasu wymaganego na naprawę usterki </i></li>
                                 </ul>
@@ -132,11 +132,11 @@
                             <a href="#colMontaz" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Montaż i regulacja</h5></a>
                             <div id="colMontaz" class="collapse">
                                 <ul>
-                                    <li>Podpórki 5zł</li>
-                                    <li>Siodełka 10zł</li>
-                                    <li>Licznika 10zł</li>
-                                    <li>Kółek bocznych 15zł</li>
-                                    <li>Błotników 25zł</li>
+                                    <li>${cennik.nazwa24} ${cennik.wart24}zł</li>
+                                    <li>${cennik.nazwa25} ${cennik.wart25}zł</li>
+                                    <li>${cennik.nazwa26} ${cennik.wart26}zł</li>
+                                    <li>${cennik.nazwa27} ${cennik.wart27}zł</li>
+                                    <li>${cennik.nazwa28} ${cennik.wart28}zł</li>
                                 </ul>
                             </div>
                         </div>
@@ -145,9 +145,9 @@
                             <a href="#colDodatkowe" data-toggle="collapse" data-parent="#colZespoly" style="text-decoration: none"><h5>Dodatkowe usługi</h5></a>
                             <div id="colDodatkowe" class="collapse">
                                 <ul>
-                                    <li>Gruntowne czyszczenie łańcucha z założeniem spinki 40zł</li>
-                                    <li>Polerowanie roweru 50zł</li>
-                                    <li>Lakierowanie ramy, widelca, błotników i bagażnika  350zł</li>
+                                    <li>${cennik.nazwa29} ${cennik.wart29}zł</li>
+                                    <li>${cennik.nazwa30} ${cennik.wart30}zł</li>
+                                    <li>${cennik.nazwa31} ${cennik.wart31}zł</li>
                                 </ul>
                             </div>
                         </div>

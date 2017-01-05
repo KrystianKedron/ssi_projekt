@@ -67,5 +67,13 @@ Contributor(s):
       <property name="imie" type="string" column="IMIE" />
       <property name="nazwisko" type="string" column="NAZWISKO" />
   </class>
+  
+  <class name="pk.ssi.cennikForm" table="CENNIK">
+      <id name="id" type="java.lang.Integer" column="ID_CENNIK"/>      
+      <property name="wartosc" type="java.lang.Integer" column="WARTOSC"/>
+      <property name="kolumna" type="string" column="KOLUMNA" />
+      <property name="category" type="java.lang.Integer" column="CATEGORY" />
+  </class>
+  
 
 </hibernate-mapping>
