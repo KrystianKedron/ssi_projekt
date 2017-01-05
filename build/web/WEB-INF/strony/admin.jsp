@@ -33,28 +33,10 @@
             <div class="sidebar-option">
                 <span class="sidebar-option-title">Admin</span>
                 <ul>
-                    <li><a href="/ssi_projekt/main/przydziel_zadania"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Przydziel zadania</a></li>
-                    <li><a href="/ssi_projekt/main/uzytkownicy"><i class="fa fa-male" aria-hidden="true"></i> Użytkownicy</a></li>
+                    <li><a href="<c:url value="/main/przydziel_zadania" />"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Przydziel zadania</a></li>
+                    <li><a href="<c:url value="/main/uzytkownicy" />"><i class="fa fa-male" aria-hidden="true"></i> Użytkownicy</a></li>
                     <li><a href="/ssi_projekt/main/cennik"><i class="fa fa-money" aria-hidden="true"></i> Cennik</a></li>
                     <li><a href="/ssi_projekt/main/ustawienia"><i class="fa fa-cogs" aria-hidden="true"></i> Ustawienia</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-option">
-                <span class="sidebar-option-title">Pracownik</span>
-                <ul>
-                    <li><a href="/ssi_projekt/main/pracownik_zadania"><i class="fa fa-check-circle" aria-hidden="true"></i> Moje zadania</a></li>
-                    <li><a href="/ssi_projekt/main/pracownik_grafik"><i class="fa fa-gg-circle" aria-hidden="true"></i> Grafik</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-option">
-                <span class="sidebar-option-title">Klient</span>
-                <ul>
-                    <li><a href="/ssi_projekt/main/klient_dane"><i class="fa fa-address-card-o" aria-hidden="true"></i> Moje dane</a></li>
-                    <li><a href="/ssi_projekt/main/klient_usluga"><i class="fa fa-bicycle" aria-hidden="true"></i> Zamów usługę</a></li>
-                    <li><a href="/ssi_projekt/main/klient_status"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Status zamówienia</a></li>
-                    <li><a href="/ssi_projekt/main/klient_cennik"><i class="fa fa-money" aria-hidden="true"></i> Cennik usług</a></li>
                 </ul>
             </div>
         </div>
@@ -105,6 +87,6 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="<c:url value="/resources/jss/scrpit.js" />></script>
+    <script src="<c:url value="/resources/jss/scrpit.js" />"></script>
 </body>
 </html>

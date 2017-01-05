@@ -23,7 +23,11 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 import pk.ssi.hibernate.NewHibernateUtil;
 import pk.ssi.userForm;
 import pk.ssi.administratorForm;
+
 import pk.ssi.cennikForm;
+
+import pk.ssi.pracownikForm;
+
 
 /**
  *
@@ -47,7 +51,7 @@ public class DataBase implements Serializable {
         session.getTransaction().commit();
         session.close();
     }
-
+    
     public Map<Integer, userForm> getAllUsers(){
         
         Map<Integer, userForm> ss = new HashMap<Integer, userForm>();
@@ -92,27 +96,6 @@ public class DataBase implements Serializable {
     
     public String[] searchId(String id){
         
-        //session.saveOrUpdate(book);
-//        System.out.println("pk.ssi.hibernate.DataBase.searchId()");
-//        session = helper.getSessionFactory().openSession();
-//        FullTextSession fullTextSession = org.hibernate.search.Search.getFullTextSession(session);
-//        Transaction tx = fullTextSession.beginTransaction();
-//        QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity( administratorForm.class ).get();
-//        
-//        System.out.println(id);
-//        org.apache.lucene.search.Query query = qb.keyword().onFields("imie").matching("Krystian").createQuery();
-//          // wrap Lucene query in a org.hibernate.Query
-//        org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, administratorForm.class);
-//          // execute search
-//        List result = hibQuery.list();
-//        
-//        Iterator<administratorForm> it = result.iterator();
-//        while (it.hasNext()) {
-//         System.out.println("pk.ssi.hibernate.DataBase.searchId().weszlo");
-//         administratorForm admin1 = (administratorForm) it.next();
-//         System.out.println(admin1.getImie() + " " + admin1.getNazwisko());
-//        }
-//        tx.commit();
         System.out.println("pk.ssi.hibernate.DataBase.searchId()");
         String query = "SELECT id, usr_id, imie, nazwisko FROM pk.ssi.administratorForm WHERE USR_ID = "
                 + id;
@@ -301,6 +284,7 @@ public class DataBase implements Serializable {
         session.close();
     }
     
+
     public HashMap<Integer, cennikForm> get_data_from_price_list()
     {
         
@@ -313,10 +297,12 @@ public class DataBase implements Serializable {
 //        session.close();
 //      
         HashMap<Integer, cennikForm> ss = new HashMap<Integer,cennikForm>();
+
         
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         
+
         int j = 2;
         for (int i = 1; i < j; i++){
             cennikForm ele = (cennikForm) session.get(cennikForm.class, i); 
@@ -336,18 +322,132 @@ public class DataBase implements Serializable {
         return ss;
     }
     
-    public ArrayList<String> get_data_from_price_list1()
-    {
+    
+
+    public List<String[]> getUsers(){
         
-        String query = "SELECT * FROM pk.ssi.cennikForm WHERE category=" + "1";
+        String[][] user = null;
+        Object[][] value = null;
+        String query = "SELECT id, email FROM pk.ssi.userForm";
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array != null) {
+
+            user = new String[array.size()][2];
+            value = new Object[array.size()][2];
+            
+            for (int i = 0; i < array.size(); i++){
+                value[i] = (Object[])array.get(i);
+                user[i] =  new String[]{String.valueOf(value[i][0]), 
+                                        String.valueOf(value[i][1])} ;
+            }
+
+//            for (String object[] : pracownik) {
+//                System.out.println("---------------------------");
+//                for (String string : object) {
+//                    System.out.println(string);
+//                }
+//            }
+        }
+        List<String[]> users_list = null;
+        if (user != null){
+            
+            users_list = new ArrayList();
+            for (String[] usr: user){
+
+                query = "SELECT id FROM pk.ssi.pracownikForm where"
+                        + " usr_id="+usr[0];
+                array = (ArrayList) session.createQuery(query).list();
+                if (array.size() == 0) {
+                    
+                    users_list.add(new String[]{usr[0], usr[1]});
+                }
+            }
+           
+//            for (String object : users_list) {
+//                
+//                System.out.println("-------------------------------------");
+//                System.out.println(object);
+//            }
+            
+        }
+        session.getTransaction().commit();
+        session.close();
+        
+        return users_list;
+    }
+    
+    public void addWorker(String id_usr){
+        
+        System.out.println("pk.ssi.hibernate.DataBase.addWorker()");
+        String query = "SELECT id FROM pk.ssi.pracownikForm";
+
         System.out.println(query);
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         ArrayList array = (ArrayList) session.createQuery(query).list();
+
+        
+
+        int id=array.size()+1;
+        
+        pracownikForm pracownik = new pracownikForm(id,Integer.valueOf(id_usr),"nowy","nowy");
+        session.save(pracownik);
         session.getTransaction().commit();
         session.close();
-   
-        return array;
+    }
+    
+    public pracownikForm getWorker(int id){
+        
+        pracownikForm worker = new pracownikForm();
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        worker = (pracownikForm) session.get(pracownikForm.class, id); 
+        
+        session.getTransaction().commit();
+        session.close();
+        return worker;
+    }
+    
+    public void saveWorker(pracownikForm pra){
+        
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+//        session.delete(pra);
+//        session.save(pra);
+        System.out.println(pra.getImie() + " " + pra.getNazwisko());
+        session.update(pra);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    public String cheakUser(int user_id){
+        
+        String query = "SELECT id FROM pk.ssi.pracownikForm WHERE usr_id="+user_id;
+        System.out.println(query);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        ArrayList array = (ArrayList) session.createQuery(query).list();
+        
+        if (array.isEmpty()){
+            
+            query = "SELECT id FROM pk.ssi.administratorForm WHERE usr_id="+user_id;
+            System.out.println(query);
+            session = helper.getSessionFactory().openSession();
+            session.beginTransaction();
+            array = (ArrayList) session.createQuery(query).list();
+            
+            if (array.isEmpty()) {
+                
+                return "usr";
+            }
+            
+            return "admin";
+        }
+        
+        return "pracownik";
+
     }
     
 }

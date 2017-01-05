@@ -28,7 +28,7 @@
                 </div>
                 <div class="navbar-option pull-right">
                     <a href="index.html" class="pull-right"><p>Wyloguj</p></a>
-                    <a href="#" class="pull-right"><p>Michał Nowak <i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
+                    <a href="#" class="pull-right"><p>${admin.imie} ${admin.nazwisko}<i class="fa fa-caret-down" aria-hidden="true"></i></p></a>
                 </div>
             </div>
         </nav>
@@ -56,37 +56,17 @@
                     <h4><a href="#colPracownicy" data-toggle="collapse" style="text-decoration: none">PRACOWNICY</a></h4>
 
                     <div id="colPracownicy" class="collapse panel-group">
-
+                        <c:forEach items="${pracownicy}" var="pra">
                         <div class="panel panel-default" >
-                            <a href="#colPrac1" data-toggle="collapse" data-parent="#colPracownicy" style="text-decoration: none"><h5>Jan Kowalski</h5></a>
-                            <div id="colPrac1" class="uzytkownik collapse in">
+                            <a data-toggle="collapse" data-parent="#colPracownicy" style="text-decoration: none"><h5>${pra.imie} ${pra.nazwisko}</h5></a>
+                            <div class="uzytkownik collapse in">
                                 <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
+                                    <a href="edytuj/${pra.id}" class="button btn btn-success"> Edytuj dane</a>
                                     <button class="btn btn-danger">Usuń pracownika</button>
                                 </span>
                             </div>
                         </div>
-
-                        <div class="panel panel-default">
-                            <a href="#colPrac2" data-toggle="collapse" data-parent="#colPracownicy" style="text-decoration: none"><h5>Michał Nowak</h5></a>
-                            <div id="colPrac2" class="uzytkownik collapse">
-                                <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                    <button class="btn btn-danger">Usuń pracownika</button>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <a href="#colPrac3" data-toggle="collapse" data-parent="#colPracownicy" style="text-decoration: none"><h5>Jakub Michalski</h5></a>
-                            <div id="colPrac3" class="uzytkownik collapse">
-                                <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                    <button class="btn btn-danger">Usuń pracownika</button>
-                                </span>
-                            </div>
-                        </div>
-                        
+                        </c:forEach>
                     </div>
                     </div>
                     <hr>
@@ -95,46 +75,17 @@
 
                     <h4><a href="#colKlienci" data-toggle="collapse"  style="text-decoration: none">KLIENCI</a></h4>
                     <div id="colKlienci" class="panel-group collapse">
-
-                        <div class="panel panel-default" >
-                            <a href="#colKlient1" data-toggle="collapse" data-parent="#colKlienci" style="text-decoration: none"><h5>Roman Kopp</h5></a>
-                            <div id="colKlient1" class="uzytkownik collapse in">
-                                <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                    <button class="btn btn-danger">Usuń Klienta</button>
-                                </span>
+                        <c:forEach items="${users}" var="usr">
+                            <div class="panel panel-default">
+                                <a data-toggle="collapse" data-parent="#colKlienci" style="text-decoration: none"><h5>${usr[1]}</h5></a>
+                                <div class="uzytkownik collapse in">
+                                    <span class="guzikiDoEdycji">
+                                       <a href="pracownik/${usr[0]}" class="button btn btn-success" aria-hidden="true" > Dodaj jako pracownik</a>
+                                        <button class="btn btn-danger">Usuń Klienta</button>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <a href="#colKlient2" data-toggle="collapse" data-parent="#colKlienci" style="text-decoration: none"><h5>Adrianna Gubała</h5></a>
-                            <div id="colKlient2" class="uzytkownik collapse">
-                                <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                    <button class="btn btn-danger">Usuń Klienta</button>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <a href="#colKlient3" data-toggle="collapse" data-parent="#colKlienci" style="text-decoration: none"><h5>Marek Kumek</h5></a>
-                            <div id="colKlient3" class="uzytkownik collapse">
-                                <span class="guzikiDoEdycji">
-                                    <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                    <button class="btn btn-danger">Usuń Klienta</button>
-                                </span>
-                            </div>
-                        </div>
-
-                    <div class="panel panel-default">
-                        <a href="#colKlient4" data-toggle="collapse" data-parent="#colKlienci" style="text-decoration: none"><h5>Maria Suseł</h5></a>
-                        <div id="colKlient4" class="uzytkownik collapse">
-                            <span class="guzikiDoEdycji">
-                                <a href="edycjaDanych.html" class="button btn btn-success"> Edytuj dane</a>
-                                <button class="btn btn-danger">Usuń Klienta</button>
-                            </span>
-                        </div>
-                    </div>
+                        </c:forEach>
                     </div>
                     <hr>
 
@@ -145,6 +96,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="<c:url value="/resources/jss/scrpit.js" />></script>
+</script>
 </body>
 </html>
