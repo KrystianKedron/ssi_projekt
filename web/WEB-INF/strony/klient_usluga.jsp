@@ -60,7 +60,8 @@
                                 <div class="col-xs-6">
                                     <p class="text-center" style="font-weight: 700;">Zadanie: </p>
                                     <form:select path="zadanieString" name="zadanieString" class="input-own">
-                                            <form:option value="Hamulce">Hamlulce</form:option>>
+                                            <form:option value="Hamulce">Hamlulce</form:option>
+                                            <form:option value="Kolo">Kolo</form:option>>
                                     </form:select>
                                 </div>
                                 <input type="submit" class="btn btn-success" name="" value="Złóż zamówienie" style="margin-top: 250px; float: right; margin-right: 20px; font-size: larger; " />

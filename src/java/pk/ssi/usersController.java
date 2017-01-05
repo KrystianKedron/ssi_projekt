@@ -306,7 +306,7 @@ public class usersController {
         ModelMap mapa = new ModelMap();
         putDataToMap(mapa);
         
-        return new ModelAndView("redirect:/main/admin", mapa);
+        return new ModelAndView("admin", mapa);
     }
     
 //    @RequestMapping(value="/usun/{id}", method = RequestMethod.POST)
